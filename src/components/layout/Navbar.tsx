@@ -124,7 +124,7 @@ function Navbar() {
 
       <Link
         href="/join"
-        className="bg-brand-primary focus-visible:outline-ring fixed top-1/3 left-0 z-40 rounded-r-md px-2 py-4 text-xs text-white transition-colors [writing-mode:vertical-rl] hover:bg-white hover:text-[#0f0f0f] focus-visible:outline-2 focus-visible:outline-offset-2"
+        className="bg-brand-accent focus-visible:outline-ring fixed top-1/3 left-0 z-40 rounded-r-md px-2 py-4 text-xs text-[#0f0f0f] transition-colors [writing-mode:vertical-rl] hover:bg-white  focus-visible:outline-2 focus-visible:outline-offset-2"
       >
         <span className="rotate-180">Join the club</span>
       </Link>

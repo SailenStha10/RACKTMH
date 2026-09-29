@@ -1,5 +1,11 @@
 export type EventRegistrationState = "open" | "closed" | "not_required"
 
+export type AvenueOfService =
+  | "CLUB_SERVICE"
+  | "COMMUNITY_SERVICE"
+  | "PROFESSIONAL_DEVELOPMENT"
+  | "INTERNATIONAL_SERVICE"
+
 export interface EventCard {
   id: string
   slug: string
@@ -17,11 +23,7 @@ export interface ProjectCard {
   slug: string
   title: string
   coverUrl: string
-  avenue:
-    | "CLUB_SERVICE"
-    | "COMMUNITY_SERVICE"
-    | "PROFESSIONAL_DEVELOPMENT"
-    | "INTERNATIONAL_SERVICE"
+  avenue: AvenueOfService
   startDate: Date
   summary: string
 }

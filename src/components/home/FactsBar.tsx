@@ -11,7 +11,7 @@ function FactsBar() {
   ];
 
   return (
-    <section className="bg-[#0f0f0f] py-10 text-white">
+    <section id="facts" className="bg-[#0f0f0f] py-10 text-white">
       <Container>
         <dl className="grid grid-cols-2 gap-8 text-center lg:grid-cols-4">
           {facts.map((fact, i) => (

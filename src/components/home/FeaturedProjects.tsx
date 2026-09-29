@@ -1,44 +1,40 @@
 import Link from "next/link";
-import { FolderX } from "lucide-react";
 
 import { mockFeaturedProjects } from "@/data/mock";
 import { Section } from "@/components/layout/Section";
 import { ProjectCard } from "@/components/projects/ProjectCard";
-import { Button } from "@/components/ui/button";
+import { Reveal } from "@/components/motion/Reveal";
 
 function FeaturedProjects() {
   const projects = mockFeaturedProjects;
+  if (projects.length === 0) return null;
 
   return (
     <Section
-      eyebrow="Our Work"
-      title="Featured Projects"
-      subtitle="A look at the service projects our members are proud to have led."
-      className="bg-muted/40"
+      id="projects"
+      eyebrow="Selected projects"
+      title="Service that reaches the classroom and beyond."
       action={
-        <Button
-          variant="outline"
-          render={<Link href="/projects">View all projects</Link>}
-        />
+        <Link
+          href="/projects"
+          className="border-foreground text-foreground hover:bg-foreground hover:text-background focus-visible:outline-ring rounded-full border px-5 py-2.5 text-xs transition-colors focus-visible:outline-2 focus-visible:outline-offset-2"
+        >
+          View all projects
+        </Link>
       }
     >
-      {projects.length > 0 ? (
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project) => (
-            <ProjectCard key={project.id} project={project} />
-          ))}
-        </div>
-      ) : (
-        <div className="border-border flex flex-col items-center gap-3 rounded-xl border border-dashed py-16 text-center">
-          <FolderX
-            className="text-muted-foreground size-10"
-            aria-hidden="true"
-          />
-          <p className="text-muted-foreground text-sm">
-            No featured projects yet. Check back soon.
-          </p>
-        </div>
-      )}
+      <div className="grid gap-4 md:grid-cols-2">
+        {projects.map((project, i) => (
+          <Reveal
+            key={project.id}
+            delay={i * 0.15}
+            y={40}
+            className={projects.length === 1 ? "md:col-span-2" : undefined}
+          >
+            <ProjectCard project={project} wide={projects.length === 1} />
+          </Reveal>
+        ))}
+      </div>
     </Section>
   );
 }

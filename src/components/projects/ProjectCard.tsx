@@ -1,51 +1,67 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Calendar } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 import type { ProjectCard as ProjectCardData } from "@/types/public";
 import { formatDate } from "@/lib/format";
 import { AVENUE_LABELS } from "@/lib/avenue";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
 
-function ProjectCard({ project }: { project: ProjectCardData }) {
+function MetaRow({ label, value }: { label: string; value: string }) {
   return (
-    <Link href={`/projects/${project.slug}`} className="group block h-full">
-      <Card className="h-full overflow-hidden py-0 transition-shadow group-hover:shadow-md">
-        <div className="relative aspect-video w-full overflow-hidden">
-          <Image
-            src={project.coverUrl}
-            alt=""
-            fill
-            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-            className="object-cover transition-transform duration-300 group-hover:scale-105"
-          />
-        </div>
-        <CardContent className="flex flex-col gap-2 py-4">
-          <div className="flex flex-wrap gap-2">
-            <Badge variant="secondary" className="h-auto w-fit px-2.5 py-1">
-              {AVENUE_LABELS[project.avenue]}
-            </Badge>
-            {project.isInternational && (
-              <Badge variant="outline" className="h-auto w-fit px-2.5 py-1">
-                International collaboration
-              </Badge>
-            )}
+    <div className="flex justify-between gap-4 text-[11px]">
+      <dt className="text-white/70">{label}:</dt>
+      <dd className="text-right text-white/60">{value}</dd>
+    </div>
+  );
+}
+
+function ProjectCard({
+  project,
+  wide = false,
+}: {
+  project: ProjectCardData;
+  wide?: boolean;
+}) {
+  const date = project.startDate
+    ? formatDate(project.startDate)
+    : (project.dateLabel ?? "");
+
+  return (
+    <Link
+      href={`/projects/${project.slug}`}
+      className="group focus-visible:outline-ring relative block overflow-hidden rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4"
+    >
+      <div className={cn("relative", wide ? "aspect-video" : "aspect-4/3")}>
+        <Image
+          src={project.coverUrl}
+          alt=""
+          fill
+          sizes={wide ? "100vw" : "(min-width: 768px) 50vw, 100vw"}
+          className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+        />
+        <div className="glass absolute top-4 right-4 w-[min(15rem,70%)] rounded-lg p-4 transition-colors group-hover:bg-black/50">
+          <div className="flex items-start justify-between gap-3">
+            <h3 className="text-xl leading-tight font-medium">
+              {project.title}
+            </h3>
+            <ArrowUpRight
+              className="size-4 shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              aria-hidden="true"
+            />
           </div>
-          <h3 className="font-heading text-foreground text-lg font-bold">
-            {project.title}
-          </h3>
-          <span className="text-muted-foreground flex items-center gap-1.5 text-sm">
-            <Calendar className="size-4 shrink-0" aria-hidden="true" />
-            {project.startDate
-              ? formatDate(project.startDate)
-              : (project.dateLabel ?? "")}
-          </span>
-          <p className="text-muted-foreground line-clamp-2 text-sm">
-            {project.summary}
-          </p>
-        </CardContent>
-      </Card>
+          {date && <p className="mt-1 text-[11px] text-white/70">{date}</p>}
+          <dl className="mt-6 flex flex-col gap-2">
+            <MetaRow label="Avenue" value={AVENUE_LABELS[project.avenue]} />
+            {project.isInternational && (
+              <MetaRow label="Scope" value="International" />
+            )}
+          </dl>
+        </div>
+      </div>
+      <p className="text-muted-foreground mt-4 max-w-xl text-xs leading-relaxed">
+        {project.summary}
+      </p>
     </Link>
   );
 }

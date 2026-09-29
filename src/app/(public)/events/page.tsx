@@ -1,5 +1,5 @@
-import { ComingSoon } from "@/components/layout/ComingSoon"
+import { ComingSoon } from "@/components/layout/ComingSoon";
 
 export default function EventsPage() {
-  return <ComingSoon title="Events" />
+  return <ComingSoon title="Events" />;
 }

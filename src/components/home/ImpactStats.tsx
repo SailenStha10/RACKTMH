@@ -1,6 +1,7 @@
 import { mockImpactStats } from "@/data/mock";
 import { Section } from "@/components/layout/Section";
 import { CountUpStat } from "@/components/home/CountUpStat";
+import { Reveal } from "@/components/motion/Reveal";
 
 function ImpactStats() {
   if (mockImpactStats.length === 0) return null;
@@ -8,24 +9,23 @@ function ImpactStats() {
   return (
     <Section
       id="impact"
-      eyebrow="Our Impact"
-      title="Making a Difference, Together"
-      subtitle="A snapshot of what our members have accomplished through service and dedication."
-      className="bg-muted/40"
+      eyebrow="Our impact"
+      title="What our members have done, together."
     >
-      <dl className="grid grid-cols-2 gap-6 lg:grid-cols-4">
-        {mockImpactStats.map((stat) => (
-          <div
+      <dl className="grid grid-cols-2 gap-x-6 gap-y-14 lg:grid-cols-4">
+        {mockImpactStats.map((stat, i) => (
+          <Reveal
             key={stat.label}
-            className="bg-card ring-foreground/10 flex flex-col items-center gap-1 rounded-xl px-4 py-8 text-center ring-1"
+            delay={i * 0.1}
+            className="flex flex-col items-center gap-2 text-center"
           >
-            <dt className="text-muted-foreground order-2 text-sm font-medium">
-              {stat.label}
-            </dt>
-            <dd className="font-heading text-brand-primary order-1 text-4xl font-bold sm:text-5xl">
+            <dd className="text-display text-foreground order-1">
               <CountUpStat value={stat.value} suffix={stat.suffix} />
             </dd>
-          </div>
+            <dt className="text-muted-foreground order-2 text-xs">
+              {stat.label}
+            </dt>
+          </Reveal>
         ))}
       </dl>
     </Section>

@@ -1,45 +1,50 @@
-import * as React from "react"
-import { cn } from "@/lib/utils"
+import * as React from "react";
+import { cn } from "@/lib/utils";
+import { Reveal } from "@/components/motion/Reveal";
+import { SplitTextReveal } from "@/components/motion/SplitTextReveal";
 
 interface SectionHeadingProps extends React.ComponentProps<"div"> {
-  eyebrow?: string
-  title: string
-  subtitle?: string
-  align?: "left" | "center"
+  eyebrow?: string;
+  title: string;
+  subtitle?: string;
+  align?: "left" | "center";
 }
 
 function SectionHeading({
   eyebrow,
   title,
   subtitle,
-  align = "left",
+  align = "center",
   className,
   ...props
 }: SectionHeadingProps) {
   return (
     <div
       className={cn(
-        "flex flex-col gap-3",
-        align === "center" && "items-center text-center",
-        className
+        "flex flex-col gap-5",
+        align === "center" ? "items-center text-center" : "items-start",
+        className,
       )}
       {...props}
     >
       {eyebrow && (
-        <span className="text-sm font-semibold tracking-wide text-brand-primary uppercase">
-          {eyebrow}
-        </span>
+        <Reveal y={8}>
+          <span className="text-label text-foreground">
+            [{eyebrow.toUpperCase()}]
+          </span>
+        </Reveal>
       )}
-      <h2 className="text-3xl font-heading font-bold tracking-tight text-foreground sm:text-4xl">
-        {title}
-      </h2>
+      <SplitTextReveal
+        text={title}
+        className="text-headline text-foreground max-w-[22ch] sm:max-w-[26ch]"
+      />
       {subtitle && (
-        <p className="max-w-2xl text-base text-muted-foreground sm:text-lg">
-          {subtitle}
-        </p>
+        <Reveal delay={0.15} y={12}>
+          <p className="text-muted-foreground max-w-xl text-sm">{subtitle}</p>
+        </Reveal>
       )}
     </div>
-  )
+  );
 }
 
-export { SectionHeading }
+export { SectionHeading };

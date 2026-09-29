@@ -1,51 +1,25 @@
-import Image from "next/image"
+import Image from "next/image";
 
-import type { BoardMemberCard as BoardMemberCardData } from "@/types/public"
-import { cn } from "@/lib/utils"
+import type { BoardMemberCard as BoardMemberCardData } from "@/types/public";
 
-function BoardMemberCard({
-  member,
-  featured = false,
-}: {
-  member: BoardMemberCardData
-  featured?: boolean
-}) {
+function BoardMemberCard({ member }: { member: BoardMemberCardData }) {
   return (
-    <div className="flex flex-col items-center gap-3 text-center">
-      <div
-        className={cn(
-          "relative overflow-hidden rounded-full ring-4 ring-brand-primary/10",
-          featured ? "size-32 sm:size-36" : "size-20"
-        )}
-      >
+    <figure className="w-56 shrink-0 sm:w-64 lg:w-72">
+      <div className="bg-muted relative aspect-3/4 overflow-hidden rounded-lg">
         <Image
           src={member.photoUrl}
           alt=""
           fill
-          sizes={featured ? "144px" : "80px"}
-          className="object-cover"
+          sizes="(min-width: 1024px) 288px, 256px"
+          className="object-cover transition-transform duration-700 ease-out hover:scale-[1.03]"
         />
       </div>
-      <div>
-        <p
-          className={cn(
-            "font-heading font-bold text-foreground",
-            featured ? "text-lg" : "text-sm"
-          )}
-        >
-          {member.fullName}
-        </p>
-        <p
-          className={cn(
-            "text-brand-primary",
-            featured ? "text-sm font-medium" : "text-xs"
-          )}
-        >
-          {member.position}
-        </p>
-      </div>
-    </div>
-  )
+      <figcaption className="mt-3">
+        <p className="text-foreground text-sm font-medium">{member.fullName}</p>
+        <p className="text-muted-foreground text-xs">{member.position}</p>
+      </figcaption>
+    </figure>
+  );
 }
 
-export { BoardMemberCard }
+export { BoardMemberCard };

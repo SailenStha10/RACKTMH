@@ -1,43 +1,41 @@
-import * as React from "react"
-import { cn } from "@/lib/utils"
-import { Container } from "@/components/layout/Container"
-import { SectionHeading } from "@/components/layout/SectionHeading"
+import * as React from "react";
+import { cn } from "@/lib/utils";
+import { Container } from "@/components/layout/Container";
+import { SectionHeading } from "@/components/layout/SectionHeading";
 
 interface SectionProps extends React.ComponentProps<"section"> {
-  eyebrow?: string
-  title?: string
-  subtitle?: string
-  align?: "left" | "center"
-  action?: React.ReactNode
-  containerClassName?: string
+  eyebrow?: string;
+  title?: string;
+  subtitle?: string;
+  align?: "left" | "center";
+  action?: React.ReactNode;
+  containerClassName?: string;
 }
 
 function Section({
   eyebrow,
   title,
   subtitle,
-  align = "left",
+  align = "center",
   action,
   className,
   containerClassName,
   children,
   ...props
 }: SectionProps) {
-  const hasHeading = Boolean(title)
-
   return (
-    <section className={cn("py-16 sm:py-20", className)} {...props}>
+    <section className={cn("py-24 sm:py-32 lg:py-40", className)} {...props}>
       <Container className={containerClassName}>
-        {hasHeading && (
+        {title && (
           <div
             className={cn(
-              "mb-10 flex flex-col gap-6 sm:mb-12",
-              action && "sm:flex-row sm:items-end sm:justify-between"
+              "mb-14 flex flex-col gap-8 sm:mb-20",
+              align === "center" ? "items-center" : "items-start",
             )}
           >
             <SectionHeading
               eyebrow={eyebrow}
-              title={title!}
+              title={title}
               subtitle={subtitle}
               align={align}
             />
@@ -47,7 +45,7 @@ function Section({
         {children}
       </Container>
     </section>
-  )
+  );
 }
 
-export { Section }
+export { Section };

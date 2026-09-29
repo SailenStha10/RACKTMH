@@ -1,15 +1,10 @@
 import type { Metadata } from "next";
-import { Inter, Plus_Jakarta_Sans, Geist_Mono } from "next/font/google";
+import { Inter, Geist_Mono } from "next/font/google";
 import { siteConfig } from "@/config/site";
 import "./globals.css";
 
 const fontSans = Inter({
   variable: "--font-sans",
-  subsets: ["latin"],
-});
-
-const fontHeading = Plus_Jakarta_Sans({
-  variable: "--font-heading",
   subsets: ["latin"],
 });
 
@@ -45,9 +40,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${fontSans.variable} ${fontHeading.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${fontSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="flex min-h-full flex-col">{children}</body>
+      <body className="flex min-h-full flex-col">
+        <noscript>
+          <style>{`[data-reveal]{opacity:1!important;transform:none!important;clip-path:none!important}`}</style>
+        </noscript>
+        {children}
+      </body>
     </html>
   );
 }

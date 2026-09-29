@@ -1,8 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
-  <defs>
-    <linearGradient id="g-project" x1="58.68240888334651%" y1="0.7596123493895988%" x2="41.31759111665349%" y2="99.2403876506104%">
-      <stop offset="0%" stop-color="#D41367"/><stop offset="100%" stop-color="#F7A81B"/>
-    </linearGradient>
-  </defs>
-  <rect width="1200" height="800" fill="url(#g-project)"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e9e4da"/><stop offset="1" stop-color="#bfb8a8"/></linearGradient></defs>
+  <rect width="1600" height="900" fill="url(#g)"/><rect x="192.0" y="108.0" width="480.0" height="450.0" rx="240.0" fill="#a9a08a"/><rect x="800.0" y="270.0" width="576.0" height="288.0" rx="32.0" fill="#7d8a7a"/><circle cx="1088.0" cy="180.0" r="128.0" fill="#f4efe6"/><rect y="648.0" width="1600" height="252.00000000000003" fill="#f4efe6" opacity=".35"/>
 </svg>

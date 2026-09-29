@@ -1,74 +1,50 @@
-import Image from "next/image"
-import Link from "next/link"
-import { Calendar, Clock, MapPin } from "lucide-react"
+import Image from "next/image";
+import Link from "next/link";
 
-import type { EventCard as EventCardData } from "@/types/public"
-import { formatDate, formatTime } from "@/lib/format"
-import { cn } from "@/lib/utils"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
+import type { EventCard as EventCardData } from "@/types/public";
+import { formatDate, formatTime } from "@/lib/format";
 
-const REGISTRATION_LABEL: Record<
-  EventCardData["registrationState"],
-  { label: string; variant: "default" | "outline" | "secondary" }
-> = {
-  open: { label: "Registration Open", variant: "default" },
-  closed: { label: "Registration Closed", variant: "secondary" },
-  not_required: { label: "No Registration Required", variant: "outline" },
-}
+const REGISTRATION_LABEL: Record<EventCardData["registrationState"], string> = {
+  open: "Registration open",
+  closed: "Registration closed",
+  not_required: "No registration required",
+};
 
+/** Folded-corner card: text on white, image as a strip on the right edge. */
 function EventCard({ event }: { event: EventCardData }) {
-  const registration = REGISTRATION_LABEL[event.registrationState]
-
   return (
-    <Link href={`/events/${event.slug}`} className="group block h-full">
-      <Card className="h-full overflow-hidden py-0 transition-shadow group-hover:shadow-md">
-        <div className="relative aspect-4/5 w-full overflow-hidden">
-          <Image
-            src={event.posterUrl}
-            alt=""
-            fill
-            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-            className="object-cover transition-transform duration-300 group-hover:scale-105"
-          />
-          <Badge
-            variant={registration.variant}
-            className={cn(
-              "absolute top-3 right-3 h-auto px-2.5 py-1",
-              registration.variant === "default" &&
-                "bg-brand-primary text-brand-primary-foreground"
-            )}
-          >
-            {registration.label}
-          </Badge>
+    <Link
+      href={`/events/${event.slug}`}
+      className="group border-foreground bg-background focus-visible:outline-ring relative block h-full min-h-56 border-t border-l p-5 pr-16 focus-visible:outline-2 focus-visible:outline-offset-4"
+    >
+      <div
+        className="absolute top-0 right-0 bottom-0 w-10 overflow-hidden transition-[width] duration-500 ease-out group-hover:w-14"
+        style={{ clipPath: "polygon(0 12%, 100% 0, 100% 100%, 0 100%)" }}
+      >
+        <Image
+          src={event.posterUrl}
+          alt=""
+          fill
+          sizes="56px"
+          className="object-cover"
+        />
+      </div>
+      {event.category && (
+        <p className="text-label text-muted-foreground mb-3">
+          {event.category}
+        </p>
+      )}
+      <h3 className="text-title text-foreground">{event.title}</h3>
+      <dl className="text-muted-foreground mt-6 flex flex-col gap-1 text-xs">
+        <div>{formatDate(event.startAt)}</div>
+        <div>{formatTime(event.startAt)}</div>
+        <div>{event.venue}</div>
+        <div className="text-foreground mt-2">
+          {REGISTRATION_LABEL[event.registrationState]}
         </div>
-        <CardContent className="flex flex-col gap-2 py-4">
-          {event.category && (
-            <span className="text-xs font-semibold tracking-wide text-brand-primary uppercase">
-              {event.category}
-            </span>
-          )}
-          <h3 className="font-heading text-lg font-bold text-foreground">
-            {event.title}
-          </h3>
-          <div className="flex flex-col gap-1 text-sm text-muted-foreground">
-            <span className="flex items-center gap-1.5">
-              <Calendar className="size-4 shrink-0" aria-hidden="true" />
-              {formatDate(event.startAt)}
-            </span>
-            <span className="flex items-center gap-1.5">
-              <Clock className="size-4 shrink-0" aria-hidden="true" />
-              {formatTime(event.startAt)}
-            </span>
-            <span className="flex items-center gap-1.5">
-              <MapPin className="size-4 shrink-0" aria-hidden="true" />
-              {event.venue}
-            </span>
-          </div>
-        </CardContent>
-      </Card>
+      </dl>
     </Link>
-  )
+  );
 }
 
-export { EventCard }
+export { EventCard };

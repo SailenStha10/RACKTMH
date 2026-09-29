@@ -1,47 +1,37 @@
 import Link from "next/link";
 
 import { mockBoardMembers } from "@/data/mock";
-import { Section } from "@/components/layout/Section";
+import { Container } from "@/components/layout/Container";
+import { SectionHeading } from "@/components/layout/SectionHeading";
 import { BoardMemberCard } from "@/components/team/BoardMemberCard";
-import { Button } from "@/components/ui/button";
-
-const HIGHLIGHTED_POSITIONS = ["President", "Secretary", "Treasurer"];
+import { HorizontalStrip } from "@/components/motion/HorizontalStrip";
+import { Reveal } from "@/components/motion/Reveal";
 
 function BoardPreview() {
-  const highlighted = mockBoardMembers.filter((m) =>
-    HIGHLIGHTED_POSITIONS.includes(m.position),
-  );
-  const others = mockBoardMembers.filter(
-    (m) => !HIGHLIGHTED_POSITIONS.includes(m.position),
-  );
-
   return (
-    <Section
-      eyebrow="Our Team"
-      title="Meet the Board"
-      subtitle="The leaders guiding our club's service, growth and fellowship this rotary year."
-      action={
-        <Button
-          variant="outline"
-          render={<Link href="/team">View full team</Link>}
+    <section className="py-24 sm:py-32 lg:py-40">
+      <Container className="mb-14 sm:mb-20">
+        <SectionHeading
+          eyebrow="Our team"
+          title="The people guiding this rotary year."
         />
-      }
-    >
-      <div className="flex flex-col gap-12">
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
-          {highlighted.map((member) => (
-            <BoardMemberCard key={member.id} member={member} featured />
-          ))}
-        </div>
-        {others.length > 0 && (
-          <div className="border-border grid grid-cols-2 gap-6 border-t pt-10 sm:grid-cols-3 lg:grid-cols-4">
-            {others.map((member) => (
-              <BoardMemberCard key={member.id} member={member} />
-            ))}
-          </div>
-        )}
-      </div>
-    </Section>
+      </Container>
+
+      <HorizontalStrip className="flex w-max gap-4 px-4 sm:px-6 lg:px-8">
+        {mockBoardMembers.map((member) => (
+          <BoardMemberCard key={member.id} member={member} />
+        ))}
+      </HorizontalStrip>
+
+      <Reveal className="mt-12 flex justify-center">
+        <Link
+          href="/team"
+          className="border-foreground text-foreground hover:bg-foreground hover:text-background focus-visible:outline-ring rounded-full border px-5 py-2.5 text-xs transition-colors focus-visible:outline-2 focus-visible:outline-offset-2"
+        >
+          Meet the full team
+        </Link>
+      </Reveal>
+    </section>
   );
 }
 

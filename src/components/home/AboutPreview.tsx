@@ -1,56 +1,137 @@
+import Image from "next/image";
 import Link from "next/link";
-import { Eye, Target } from "lucide-react";
 
 import { siteConfig } from "@/config/site";
-import { Section } from "@/components/layout/Section";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { Container } from "@/components/layout/Container";
+import { Reveal } from "@/components/motion/Reveal";
+import { SplitTextReveal } from "@/components/motion/SplitTextReveal";
+
+// Decorative drifting thumbnails; positions are percentages of the cluster box.
+const CIRCLES = [
+  {
+    src: "/placeholders/gallery-tile-1.svg",
+    top: "6%",
+    left: "8%",
+    size: 44,
+    dx: 12,
+    dy: -16,
+  },
+  {
+    src: "/placeholders/gallery-tile-2.svg",
+    top: "0%",
+    left: "58%",
+    size: 36,
+    dx: -10,
+    dy: 14,
+  },
+  {
+    src: "/placeholders/gallery-tile-3.svg",
+    top: "30%",
+    left: "82%",
+    size: 40,
+    dx: 8,
+    dy: 12,
+  },
+  {
+    src: "/placeholders/gallery-tile-4.svg",
+    top: "38%",
+    left: "34%",
+    size: 48,
+    dx: -14,
+    dy: -10,
+  },
+  {
+    src: "/placeholders/gallery-tile-5.svg",
+    top: "66%",
+    left: "70%",
+    size: 38,
+    dx: 10,
+    dy: -12,
+  },
+  {
+    src: "/placeholders/gallery-tile-6.svg",
+    top: "72%",
+    left: "12%",
+    size: 42,
+    dx: -8,
+    dy: 16,
+  },
+];
 
 function AboutPreview() {
   return (
-    <Section
-      eyebrow="Who We Are"
-      title="About Our Club"
-      subtitle={`${siteConfig.clubName} is a youth-led club in Rotary International ${siteConfig.district} (${siteConfig.districtRegion}), dedicated to service, leadership and fellowship in Kathmandu.`}
-      action={
-        <Button
-          variant="outline"
-          render={<Link href="/about">Learn More</Link>}
-        />
-      }
-    >
-      <div className="grid gap-6 sm:grid-cols-2">
-        <Card>
-          <CardHeader>
-            <div className="flex items-center gap-3">
-              <span className="bg-brand-primary/10 text-brand-primary flex size-10 items-center justify-center rounded-full">
-                <Eye className="size-5" aria-hidden="true" />
-              </span>
-              <CardTitle>Our Vision</CardTitle>
-            </div>
-          </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground text-sm">{siteConfig.vision}</p>
-          </CardContent>
-        </Card>
+    <section className="py-24 sm:py-32 lg:py-40">
+      <Container>
+        <div className="grid gap-16 lg:grid-cols-2">
+          <div className="flex flex-col gap-6">
+            <Reveal y={8}>
+              <span className="text-label text-foreground">[ABOUT]</span>
+            </Reveal>
+            <SplitTextReveal
+              text={
+                "We are a youth-led club serving Kathmandu through service, leadership and fellowship."
+              }
+              className="text-headline text-foreground max-w-[26ch]"
+            />
+            <Reveal delay={0.2}>
+              <Link
+                href="/about"
+                className="border-foreground text-foreground hover:bg-foreground hover:text-background focus-visible:outline-ring inline-block rounded-full border px-5 py-2.5 text-xs transition-colors focus-visible:outline-2 focus-visible:outline-offset-2"
+              >
+                Learn more
+              </Link>
+            </Reveal>
+          </div>
 
-        <Card>
-          <CardHeader>
-            <div className="flex items-center gap-3">
-              <span className="bg-brand-secondary/10 text-brand-secondary flex size-10 items-center justify-center rounded-full">
-                <Target className="size-5" aria-hidden="true" />
-              </span>
-              <CardTitle>Our Mission</CardTitle>
-            </div>
-          </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground text-sm">
+          <div
+            className="relative hidden h-72 sm:block lg:h-96"
+            aria-hidden="true"
+          >
+            {CIRCLES.map((c, i) => (
+              <div
+                key={c.src}
+                data-drift
+                className="absolute overflow-hidden rounded-full"
+                style={
+                  {
+                    top: c.top,
+                    left: c.left,
+                    width: c.size,
+                    height: c.size,
+                    "--dx": `${c.dx}px`,
+                    "--dy": `${c.dy}px`,
+                    animation: `drift ${7 + i}s ease-in-out ${i * -1.3}s infinite`,
+                  } as React.CSSProperties
+                }
+              >
+                <Image
+                  src={c.src}
+                  alt=""
+                  fill
+                  sizes="48px"
+                  className="object-cover"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-16 grid gap-8 sm:mt-24 sm:grid-cols-2 lg:ml-[25%] lg:max-w-2xl">
+          <Reveal delay={0.1}>
+            <p className="text-muted-foreground max-w-xs text-xs leading-relaxed">
+              <span className="text-foreground/40">Mission: </span>
               {siteConfig.mission}
             </p>
-          </CardContent>
-        </Card>
-      </div>
-    </Section>
+          </Reveal>
+          <Reveal delay={0.2}>
+            <p className="text-muted-foreground max-w-xs text-xs leading-relaxed">
+              <span className="text-foreground/40">Vision: </span>
+              {siteConfig.vision}
+            </p>
+          </Reveal>
+        </div>
+      </Container>
+    </section>
   );
 }
 

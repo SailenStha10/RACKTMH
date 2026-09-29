@@ -1,5 +1,5 @@
-import { ComingSoon } from "@/components/layout/ComingSoon"
+import { ComingSoon } from "@/components/layout/ComingSoon";
 
 export default function ContactPage() {
-  return <ComingSoon title="Contact Us" />
+  return <ComingSoon title="Contact Us" />;
 }

@@ -1,9 +1,8 @@
 import Image from "next/image";
-import { Award } from "lucide-react";
 
 import { mockRecognition } from "@/data/mock";
-import { Section } from "@/components/layout/Section";
-import { Card, CardContent } from "@/components/ui/card";
+import { Container } from "@/components/layout/Container";
+import { Reveal } from "@/components/motion/Reveal";
 
 const MONTH_NAMES = [
   "January",
@@ -25,33 +24,43 @@ function RotaractorOfTheMonth() {
   if (!recognition) return null;
 
   return (
-    <Section eyebrow="Recognition" title="Rotaractor of the Month">
-      <Card className="overflow-hidden py-0">
-        <CardContent className="flex flex-col items-center gap-6 p-8 sm:flex-row sm:items-start sm:p-10">
-          <div className="ring-brand-accent/20 relative size-28 shrink-0 overflow-hidden rounded-full ring-4">
+    <section className="py-24 sm:py-32 lg:py-40">
+      <Container className="flex flex-col items-center gap-10">
+        <Reveal y={8}>
+          <span className="text-label text-foreground">
+            [ROTARACTOR OF THE MONTH]
+          </span>
+        </Reveal>
+        <Reveal className="flex max-w-3xl gap-4">
+          <span
+            aria-hidden="true"
+            className="text-foreground text-6xl leading-none font-extrabold italic"
+          >
+            &rdquo;
+          </span>
+          <blockquote className="text-quote text-foreground">
+            {recognition.achievement}
+          </blockquote>
+        </Reveal>
+        <Reveal delay={0.15} className="flex items-center gap-3">
+          <div className="relative size-9 overflow-hidden rounded-full">
             <Image
               src={recognition.photoUrl}
               alt=""
               fill
-              sizes="112px"
+              sizes="36px"
               className="object-cover"
             />
           </div>
-          <div className="flex flex-col items-center gap-2 text-center sm:items-start sm:text-left">
-            <span className="text-brand-accent flex items-center gap-1.5 text-sm font-semibold">
-              <Award className="size-4" aria-hidden="true" />
+          <div className="text-xs">
+            <p className="text-foreground">{recognition.fullName}</p>
+            <p className="text-foreground font-medium">
               {MONTH_NAMES[recognition.month - 1]} {recognition.year}
-            </span>
-            <h3 className="font-heading text-foreground text-2xl font-bold">
-              {recognition.fullName}
-            </h3>
-            <p className="text-muted-foreground max-w-xl text-sm">
-              {recognition.achievement}
             </p>
           </div>
-        </CardContent>
-      </Card>
-    </Section>
+        </Reveal>
+      </Container>
+    </section>
   );
 }
 

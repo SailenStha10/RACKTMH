@@ -1361,7 +1361,7 @@ Claude Code updates this section after each ticket.
 
 | Ticket | Title | Status | Date |
 |---|---|---|---|
-| T-001 | Initialize Next.js project | [ ] | |
+| T-001 | Initialize Next.js project | [x] | 2026-09-29 |
 | T-002 | Tooling, UI library and base structure | [ ] | |
 | T-101 | Design system and theme | [ ] | |
 | T-102 | Public layout: Navbar and Footer | [ ] | |

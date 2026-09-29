@@ -10,6 +10,7 @@ interface SectionHeadingProps extends React.ComponentProps<"div"> {
   align?: "left" | "center";
 }
 
+/** Colours are inherited from the surrounding Section tone. */
 function SectionHeading({
   eyebrow,
   title,
@@ -21,7 +22,7 @@ function SectionHeading({
   return (
     <div
       className={cn(
-        "flex flex-col gap-5",
+        "flex flex-col gap-4",
         align === "center" ? "items-center text-center" : "items-start",
         className,
       )}
@@ -29,18 +30,18 @@ function SectionHeading({
     >
       {eyebrow && (
         <Reveal y={8}>
-          <span className="text-label text-foreground">
+          <span className="text-label font-medium tracking-wider opacity-80">
             [{eyebrow.toUpperCase()}]
           </span>
         </Reveal>
       )}
       <SplitTextReveal
         text={title}
-        className="text-headline text-foreground max-w-[22ch] sm:max-w-[26ch]"
+        className="max-w-[24ch] text-[clamp(1.75rem,3.4vw,2.75rem)] leading-[1.1] font-medium tracking-tight sm:max-w-[28ch]"
       />
       {subtitle && (
         <Reveal delay={0.15} y={12}>
-          <p className="text-muted-foreground max-w-xl text-sm">{subtitle}</p>
+          <p className="max-w-xl text-base opacity-80">{subtitle}</p>
         </Reveal>
       )}
     </div>

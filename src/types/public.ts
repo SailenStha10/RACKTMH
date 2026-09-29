@@ -30,6 +30,7 @@ export interface ProjectCard {
   dateLabel?: string;
   summary: string;
   isInternational?: boolean;
+  partners?: readonly string[];
 }
 
 export interface BoardMemberCard {

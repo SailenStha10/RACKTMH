@@ -5,9 +5,13 @@ Source of truth: CONTENT_BRIEF.md. Fill Section 4 of the brief and add files und
 ## Needs confirmation
 - Sponsor club relationship: Rotary Club of Kathmandu Height (charter date 3 August 2020, RI District 3292). Not shown as "our sponsor" anywhere until confirmed (`sponsorClubVerified: false` in `src/config/site.ts`).
 
+## Filled from the Instagram bio (2026-09-29)
+- Chartered 6 January 2026, RID 3292, Club ID 8827984
+- Charter President @josh.sth, Secretary @sailennn_, Treasurer not yet listed (bio shows "incomplete")
+- Only handles are used; real names and portraits are still needed. Captions could not be retrieved automatically, so paste them into `content/instagram/` posts.
+
 ## Club profile (brief 4.1)
 - Instagram bio text, club or rotary-year theme (hero currently falls back to "Service Above Self")
-- Rotaract club charter date
 - Club email, phone, meeting place, meeting schedule
 - Facebook, LinkedIn, link-in-bio items
 - Club vision (About preview shows a placeholder; the mission text is a generic Rotaract draft, replace with the club's own if it has one)

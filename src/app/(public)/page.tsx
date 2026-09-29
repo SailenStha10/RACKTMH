@@ -1,4 +1,5 @@
 import { Hero } from "@/components/home/Hero";
+import { FactsBar } from "@/components/home/FactsBar";
 import { AboutPreview } from "@/components/home/AboutPreview";
 import { FourAvenues } from "@/components/home/FourAvenues";
 import { ImpactStats } from "@/components/home/ImpactStats";
@@ -15,15 +16,16 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <GalleryPreview />
+      <FactsBar />
       <AboutPreview />
       <FourAvenues />
-      <ImpactStats />
       <FeaturedProjects />
-      <UpcomingEvents />
+      <ImpactStats />
       <BoardPreview />
       <RotaractorOfTheMonth />
+      <UpcomingEvents />
       <LatestAnnouncements />
+      <GalleryPreview />
       <InstagramStrip />
       <MembershipCTA />
     </>

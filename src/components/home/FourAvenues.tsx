@@ -1,6 +1,5 @@
 "use client";
 
-import * as React from "react";
 import { motion } from "motion/react";
 
 import { duration, ease } from "@/lib/motion";
@@ -46,21 +45,13 @@ function AvenueShape({
   glyph: string;
   index: number;
 }) {
-  const id = React.useId();
   return (
     <svg viewBox="0 0 200 200" className="w-full" aria-hidden="true">
-      <defs>
-        <linearGradient id={id} x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="var(--brand-secondary)" />
-          <stop offset="55%" stopColor="var(--brand-primary)" />
-          <stop offset="100%" stopColor="var(--brand-accent)" />
-        </linearGradient>
-      </defs>
       <motion.path
         d={outline}
         fill="none"
-        stroke={`url(#${id})`}
-        strokeWidth={1}
+        stroke="var(--brand-primary)"
+        strokeWidth={2}
         strokeLinejoin="round"
         initial={{ pathLength: 0, opacity: 0 }}
         whileInView={{ pathLength: 1, opacity: 1 }}
@@ -73,7 +64,7 @@ function AvenueShape({
       />
       <motion.path
         d={glyph}
-        fill="var(--foreground)"
+        fill="var(--brand-primary)"
         initial={{ scale: 0.6, opacity: 0 }}
         whileInView={{ scale: 1, opacity: 1 }}
         viewport={{ once: true, margin: "0px 0px -15% 0px" }}
@@ -90,17 +81,19 @@ function AvenueShape({
 
 function FourAvenues() {
   return (
-    <Section eyebrow="Avenues of service" title="Four ways we serve, one club.">
-      <ul className="grid grid-cols-2 gap-x-6 gap-y-14 lg:grid-cols-4">
+    <Section
+      tone="black"
+      eyebrow="Avenues of service"
+      title="Four ways we serve, one club."
+    >
+      <ul className="grid grid-cols-2 gap-x-6 gap-y-12 lg:grid-cols-4">
         {AVENUES.map((a, i) => (
           <li key={a.title} className="flex flex-col items-center text-center">
-            <div className="w-full max-w-48">
+            <div className="w-full max-w-44">
               <AvenueShape outline={a.outline} glyph={a.glyph} index={i} />
             </div>
-            <h3 className="text-foreground mt-4 text-sm font-normal">
-              {a.title}
-            </h3>
-            <p className="text-muted-foreground mt-1 max-w-[20ch] text-xs">
+            <h3 className="mt-4 text-base font-medium">{a.title}</h3>
+            <p className="mt-1 max-w-[22ch] text-sm text-white/70">
               {a.caption}
             </p>
           </li>

@@ -15,7 +15,21 @@ export const siteConfig = {
   districtRegion: "Nepal and Bhutan",
   sponsorClub: "Rotary Club of Kathmandu Height",
   sponsorClubVerified: false,
-  charterDate: "[[TODO: Rotaract club charter date]]",
+  charterDate: "6 January 2026",
+  clubId: "8827984",
+  leaders: [
+    {
+      position: "Charter President",
+      handle: "@josh.sth",
+      href: "https://www.instagram.com/josh.sth/",
+    },
+    {
+      position: "Secretary",
+      handle: "@sailennn_",
+      href: "https://www.instagram.com/sailennn_/",
+    },
+    { position: "Treasurer", handle: "", href: "" },
+  ],
   email: "[[TODO: club email]]",
   phone: "[[TODO: club phone]]",
   address: "Kathmandu, Nepal",

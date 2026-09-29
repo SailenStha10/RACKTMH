@@ -21,6 +21,15 @@ export const mockFeaturedProjects: ProjectCard[] = [
     avenue: "COMMUNITY_SERVICE",
     dateLabel: "July 2026",
     isInternational: true,
+    partners: [
+      "Rotary Club of Kathmandu Height",
+      "Rotary Club of Nanaimo Daybreak (Canada)",
+      "ADSon",
+      "Rotary Club of Patan",
+      "Rotaract Club of Kathmandu Height",
+      "Rotaract Club of Kathmandu Midtown",
+      "Rose International Fund for Children",
+    ],
     summary:
       "A school-level vision screening programme in Kavrepalanchok district to protect children's eye health, identify vision problems early and improve access to treatment and learning support. Delivered with international partners from Canada.",
   },
@@ -50,6 +59,7 @@ export const mockBoardMembers: BoardMemberCard[] = [
   },
 ];
 
+// Club leaders come from the club's Instagram bio (handles only; real names still needed).
 // Empty until Instagram post folders with images are added under content/instagram/.
 export const mockGalleryAlbums: GalleryAlbumCard[] = [];
 
@@ -63,6 +73,12 @@ export const mockAnnouncements: AnnouncementCard[] = [];
 
 /** Verified facts used on the About page timeline (built in a later ticket). */
 export const mockTimeline = [
+  {
+    label: "6 January 2026",
+    title: "Club chartered",
+    description:
+      "Rotaract Club of Kathmandu Height was chartered in Rotary International District 3292.",
+  },
   {
     label: "July 2026",
     title: "Project Jyoti",

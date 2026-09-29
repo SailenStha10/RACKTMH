@@ -3,11 +3,20 @@ import { cn } from "@/lib/utils";
 import { Container } from "@/components/layout/Container";
 import { SectionHeading } from "@/components/layout/SectionHeading";
 
+type SectionTone = "light" | "black" | "pink";
+
+const TONE_CLASSES: Record<SectionTone, string> = {
+  light: "bg-background text-foreground",
+  black: "bg-[#0f0f0f] text-white",
+  pink: "bg-brand-primary text-white",
+};
+
 interface SectionProps extends React.ComponentProps<"section"> {
   eyebrow?: string;
   title?: string;
   subtitle?: string;
   align?: "left" | "center";
+  tone?: SectionTone;
   action?: React.ReactNode;
   containerClassName?: string;
 }
@@ -17,6 +26,7 @@ function Section({
   title,
   subtitle,
   align = "center",
+  tone = "light",
   action,
   className,
   containerClassName,
@@ -24,12 +34,15 @@ function Section({
   ...props
 }: SectionProps) {
   return (
-    <section className={cn("py-24 sm:py-32 lg:py-40", className)} {...props}>
+    <section
+      className={cn("py-16 sm:py-20 lg:py-24", TONE_CLASSES[tone], className)}
+      {...props}
+    >
       <Container className={containerClassName}>
         {title && (
           <div
             className={cn(
-              "mb-14 flex flex-col gap-8 sm:mb-20",
+              "mb-10 flex flex-col gap-6 sm:mb-14",
               align === "center" ? "items-center" : "items-start",
             )}
           >
@@ -49,3 +62,4 @@ function Section({
 }
 
 export { Section };
+export type { SectionTone };

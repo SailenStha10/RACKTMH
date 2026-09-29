@@ -17,8 +17,6 @@ import {
 } from "@/components/ui/sheet";
 import { Container } from "@/components/layout/Container";
 
-const NAV_COLUMNS = [siteConfig.nav.slice(0, 3), siteConfig.nav.slice(3)];
-
 function isActive(pathname: string, href: string) {
   if (href === "/") return pathname === "/";
   return pathname === href || pathname.startsWith(`${href}/`);
@@ -28,7 +26,7 @@ function Wordmark() {
   return (
     <Link
       href="/"
-      className="text-foreground focus-visible:outline-ring rounded-sm text-sm font-medium tracking-tight focus-visible:outline-2 focus-visible:outline-offset-4"
+      className="focus-visible:outline-ring rounded-sm text-sm font-medium tracking-tight text-white focus-visible:outline-2 focus-visible:outline-offset-4"
     >
       {siteConfig.shortName}
     </Link>
@@ -39,10 +37,12 @@ function NavLink({
   href,
   label,
   onNavigate,
+  className,
 }: {
   href: string;
   label: string;
   onNavigate?: () => void;
+  className?: string;
 }) {
   const pathname = usePathname();
   const active = isActive(pathname, href);
@@ -52,8 +52,9 @@ function NavLink({
       onClick={onNavigate}
       aria-current={active ? "page" : undefined}
       className={cn(
-        "text-foreground focus-visible:outline-ring rounded-sm text-xs transition-opacity hover:opacity-60 focus-visible:outline-2 focus-visible:outline-offset-2",
-        active ? "opacity-100" : "opacity-70",
+        "focus-visible:outline-ring rounded-sm text-sm text-white transition-opacity hover:opacity-60 focus-visible:outline-2 focus-visible:outline-offset-2",
+        active ? "text-brand-primary opacity-100" : "opacity-80",
+        className,
       )}
     >
       {label}
@@ -62,47 +63,30 @@ function NavLink({
 }
 
 function Navbar() {
-  const [scrolled, setScrolled] = React.useState(false);
   const [mobileOpen, setMobileOpen] = React.useState(false);
-
-  React.useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   return (
     <>
       <header
-        className={cn(
-          "fixed inset-x-0 top-0 z-40 transition-colors duration-300",
-          scrolled
-            ? "bg-background/85 supports-backdrop-filter:backdrop-blur-md"
-            : "bg-transparent",
-        )}
+        className={cn("fixed inset-x-0 top-0 z-40 bg-[#0f0f0f] text-white")}
       >
-        <Container className="flex h-16 items-start justify-between pt-5 md:h-auto md:pb-4">
+        <Container className="flex h-16 items-center justify-between md:h-16">
           <Wordmark />
 
-          <nav aria-label="Main" className="hidden gap-16 md:flex">
-            {NAV_COLUMNS.map((column, i) => (
-              <div key={i} className="flex flex-col gap-1">
-                {column.map((item) => (
-                  <NavLink
-                    key={item.href}
-                    href={item.href}
-                    label={item.label}
-                  />
-                ))}
-              </div>
+          <nav aria-label="Main" className="hidden items-center gap-6 md:flex">
+            {siteConfig.nav.map((item) => (
+              <NavLink key={item.href} href={item.href} label={item.label} />
             ))}
           </nav>
 
           <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>
             <SheetTrigger
               render={
-                <Button variant="ghost" size="icon" className="-mt-2 md:hidden">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="text-white hover:bg-white/10 hover:text-white md:hidden"
+                >
                   <Menu className="size-5" aria-hidden="true" />
                   <span className="sr-only">Open menu</span>
                 </Button>
@@ -118,6 +102,7 @@ function Navbar() {
                     key={item.href}
                     href={item.href}
                     label={item.label}
+                    className="text-foreground text-base"
                     onNavigate={() => setMobileOpen(false)}
                   />
                 ))}
@@ -139,7 +124,7 @@ function Navbar() {
 
       <Link
         href="/join"
-        className="bg-foreground text-background hover:bg-brand-primary focus-visible:outline-ring fixed top-1/3 left-0 z-40 rounded-r-md px-2 py-4 text-xs transition-colors [writing-mode:vertical-rl] focus-visible:outline-2 focus-visible:outline-offset-2"
+        className="bg-brand-primary focus-visible:outline-ring fixed top-1/3 left-0 z-40 rounded-r-md px-2 py-4 text-xs text-white transition-colors [writing-mode:vertical-rl] hover:bg-white hover:text-[#0f0f0f] focus-visible:outline-2 focus-visible:outline-offset-2"
       >
         <span className="rotate-180">Join the club</span>
       </Link>

@@ -5,24 +5,9 @@ import { ArrowUpRight } from "lucide-react";
 import type { ProjectCard as ProjectCardData } from "@/types/public";
 import { formatDate } from "@/lib/format";
 import { AVENUE_LABELS } from "@/lib/avenue";
-import { cn } from "@/lib/utils";
 
-function MetaRow({ label, value }: { label: string; value: string }) {
-  return (
-    <div className="flex justify-between gap-4 text-[11px]">
-      <dt className="text-white/70">{label}:</dt>
-      <dd className="text-right text-white/60">{value}</dd>
-    </div>
-  );
-}
-
-function ProjectCard({
-  project,
-  wide = false,
-}: {
-  project: ProjectCardData;
-  wide?: boolean;
-}) {
+/** Solid black feature card: image on one side, details on the other. */
+function ProjectCard({ project }: { project: ProjectCardData }) {
   const date = project.startDate
     ? formatDate(project.startDate)
     : (project.dateLabel ?? "");
@@ -30,38 +15,63 @@ function ProjectCard({
   return (
     <Link
       href={`/projects/${project.slug}`}
-      className="group focus-visible:outline-ring relative block overflow-hidden rounded-lg focus-visible:outline-2 focus-visible:outline-offset-4"
+      className="group focus-visible:outline-ring grid overflow-hidden rounded-lg bg-[#0f0f0f] text-white focus-visible:outline-2 focus-visible:outline-offset-4 md:grid-cols-2"
     >
-      <div className={cn("relative", wide ? "aspect-video" : "aspect-4/3")}>
+      <div className="relative aspect-video overflow-hidden md:aspect-auto md:min-h-96">
         <Image
           src={project.coverUrl}
           alt=""
           fill
-          sizes={wide ? "100vw" : "(min-width: 768px) 50vw, 100vw"}
+          sizes="(min-width: 768px) 50vw, 100vw"
           className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
         />
-        <div className="glass absolute top-4 right-4 w-[min(15rem,70%)] rounded-lg p-4 transition-colors group-hover:bg-black/50">
-          <div className="flex items-start justify-between gap-3">
-            <h3 className="text-xl leading-tight font-medium">
-              {project.title}
-            </h3>
+      </div>
+
+      <div className="flex flex-col justify-center gap-5 p-8 sm:p-10">
+        <div className="flex flex-wrap gap-2">
+          <span className="bg-brand-primary rounded-full px-3 py-1 text-xs font-medium">
+            {AVENUE_LABELS[project.avenue]}
+          </span>
+          {project.isInternational && (
+            <span className="bg-brand-accent rounded-full px-3 py-1 text-xs font-medium text-[#0f0f0f]">
+              International collaboration
+            </span>
+          )}
+        </div>
+
+        <div>
+          <h3 className="flex items-start justify-between gap-4 text-3xl font-semibold tracking-tight sm:text-4xl">
+            {project.title}
             <ArrowUpRight
-              className="size-4 shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              className="text-brand-primary mt-2 size-6 shrink-0 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
               aria-hidden="true"
             />
-          </div>
-          {date && <p className="mt-1 text-[11px] text-white/70">{date}</p>}
-          <dl className="mt-6 flex flex-col gap-2">
-            <MetaRow label="Avenue" value={AVENUE_LABELS[project.avenue]} />
-            {project.isInternational && (
-              <MetaRow label="Scope" value="International" />
-            )}
-          </dl>
+          </h3>
+          {date && <p className="mt-2 text-sm text-white/70">{date}</p>}
         </div>
+
+        <p className="text-base leading-relaxed text-white/85">
+          {project.summary}
+        </p>
+
+        {project.partners && project.partners.length > 0 && (
+          <div>
+            <p className="text-label text-brand-accent mb-3 font-medium tracking-wider">
+              SUPPORTED BY
+            </p>
+            <ul className="flex flex-wrap gap-2">
+              {project.partners.map((partner) => (
+                <li
+                  key={partner}
+                  className="rounded-full border border-white/25 px-3 py-1 text-xs"
+                >
+                  {partner}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
-      <p className="text-muted-foreground mt-4 max-w-xl text-xs leading-relaxed">
-        {project.summary}
-      </p>
     </Link>
   );
 }

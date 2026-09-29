@@ -7,11 +7,7 @@ function ImpactStats() {
   if (mockImpactStats.length === 0) return null;
 
   return (
-    <Section
-      id="impact"
-      eyebrow="Our impact"
-      title="What our members have done, together."
-    >
+    <Section id="impact" title="What our members have done, together.">
       <dl className="grid grid-cols-2 gap-x-6 gap-y-14 lg:grid-cols-4">
         {mockImpactStats.map((stat, i) => (
           <Reveal

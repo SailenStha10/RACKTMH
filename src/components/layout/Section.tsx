@@ -13,7 +13,6 @@ const TONE_CLASSES: Record<SectionTone, string> = {
 };
 
 interface SectionProps extends React.ComponentProps<"section"> {
-  eyebrow?: string;
   title?: string;
   align?: "left" | "center";
   tone?: SectionTone;
@@ -22,7 +21,6 @@ interface SectionProps extends React.ComponentProps<"section"> {
 }
 
 function Section({
-  eyebrow,
   title,
   align = "center",
   tone = "light",
@@ -45,7 +43,7 @@ function Section({
               align === "center" ? "items-center" : "items-start",
             )}
           >
-            <SectionHeading eyebrow={eyebrow} title={title} align={align} />
+            <SectionHeading title={title} align={align} />
             {action && <div className="shrink-0">{action}</div>}
           </div>
         )}

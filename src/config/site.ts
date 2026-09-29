@@ -7,7 +7,8 @@ export const siteConfig = {
   theme: "[[TODO: club or rotary-year theme]]",
   intro:
     "We are a youth-led Rotaract club in Kathmandu, Nepal, bringing young people together for community service, leadership and fellowship.",
-  vision: "[[TODO: club vision]]",
+  vision:
+    "Developing competent leaders through fellowship, networking and opportunities.",
   mission:
     "To bring young people together to grow as leaders, serve their communities and build lasting friendships.",
   rotaryYear: "2026-27",

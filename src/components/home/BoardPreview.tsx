@@ -33,11 +33,7 @@ function BoardPreview() {
   const half = Array.from({ length: 5 }).flatMap(() => leaders);
 
   return (
-    <Section
-      eyebrow="Leadership"
-      title="Meet our leaders."
-      className="overflow-hidden"
-    >
+    <Section title="Meet our leaders." className="overflow-hidden">
       <div className="-mx-4 overflow-x-auto motion-safe:overflow-hidden sm:-mx-6 lg:-mx-8">
         <div className="motion-safe:hover:paused flex w-max gap-8 px-4 motion-safe:animate-[marquee_60s_linear_infinite]">
           {half.map((leader, i) => (

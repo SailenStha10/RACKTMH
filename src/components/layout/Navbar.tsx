@@ -15,7 +15,6 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Container } from "@/components/layout/Container";
 
 function isActive(pathname: string, href: string) {
   if (href === "/") return pathname === "/";
@@ -67,13 +66,14 @@ function Navbar() {
 
   return (
     <>
-      <header
-        className={cn("fixed inset-x-0 top-0 z-40 bg-[#0f0f0f] text-white")}
-      >
-        <Container className="flex h-16 items-center justify-between md:h-16">
+      <header className="pointer-events-none fixed inset-x-0 top-3 z-40 px-3 sm:top-4 sm:px-6">
+        <div className="pointer-events-auto mx-auto flex h-14 max-w-5xl items-center justify-between rounded-full bg-[#0f0f0f]/90 pr-2 pl-6 text-white shadow-[0_12px_40px_-12px_rgba(0,0,0,0.5)] ring-1 ring-white/10 backdrop-blur-md">
           <Wordmark />
 
-          <nav aria-label="Main" className="hidden items-center gap-6 md:flex">
+          <nav
+            aria-label="Main"
+            className="hidden items-center gap-5 pr-4 md:flex lg:gap-7"
+          >
             {siteConfig.nav.map((item) => (
               <NavLink key={item.href} href={item.href} label={item.label} />
             ))}
@@ -85,7 +85,7 @@ function Navbar() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="text-white hover:bg-white/10 hover:text-white md:hidden"
+                  className="rounded-full text-white hover:bg-white/10 hover:text-white md:hidden"
                 >
                   <Menu className="size-5" aria-hidden="true" />
                   <span className="sr-only">Open menu</span>
@@ -119,12 +119,12 @@ function Navbar() {
               </div>
             </SheetContent>
           </Sheet>
-        </Container>
+        </div>
       </header>
 
       <Link
         href="/join"
-        className="bg-brand-accent focus-visible:outline-ring fixed top-1/3 left-0 z-40 rounded-r-md px-2 py-4 text-xs text-[#0f0f0f] transition-colors [writing-mode:vertical-rl] hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2"
+        className="bg-brand-accent focus-visible:outline-ring fixed top-1/3 left-0 z-40 hidden rounded-r-md px-2 py-4 text-xs text-[#0f0f0f] transition-colors [writing-mode:vertical-rl] hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 sm:block"
       >
         <span className="rotate-180">Join the club</span>
       </Link>

@@ -46,11 +46,7 @@ const AVENUES: { title: string; text: string; Icon: LucideIcon }[] = [
 
 function FourAvenues() {
   return (
-    <Section
-      tone="blush"
-      eyebrow="Avenues of service"
-      title="Six ways we serve."
-    >
+    <Section tone="blush" title="Six ways we serve.">
       <ul className="mx-auto grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {AVENUES.map(({ title, text, Icon }, i) => (
           <Reveal key={title} as="li" delay={i * 0.07} y={32}>

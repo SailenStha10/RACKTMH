@@ -13,10 +13,7 @@ function GalleryPreview() {
   return (
     <section className="py-24 sm:py-32 lg:py-40">
       <Container className="mb-14 sm:mb-20">
-        <SectionHeading
-          eyebrow="Gallery"
-          title="Moments from our projects and events."
-        />
+        <SectionHeading title="Moments from our projects and events." />
       </Container>
 
       <HorizontalStrip className="flex w-max gap-4 px-4 sm:px-6 lg:px-8">

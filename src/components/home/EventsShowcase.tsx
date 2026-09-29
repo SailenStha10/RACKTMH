@@ -13,9 +13,9 @@ function EventsShowcase() {
   const event = mockFeaturedEvent;
 
   return (
-    <section id="events" className="bg-white py-16 sm:py-20 lg:py-24">
+    <section id="events" className="bg-[#fbeef3] py-16 sm:py-20 lg:py-24">
       <Container className="mb-12 sm:mb-16">
-        <SectionHeading eyebrow="Upcoming events" title="What is coming up." />
+        <SectionHeading title="What is coming up." />
       </Container>
 
       <Container>

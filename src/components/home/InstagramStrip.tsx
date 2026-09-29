@@ -5,7 +5,7 @@ import { PillLink } from "@/components/ui/PillLink";
 
 function InstagramStrip() {
   return (
-    <Section eyebrow="Follow along" title="See us on Instagram.">
+    <Section title="See us on Instagram.">
       <Reveal className="flex justify-center">
         <PillLink href={siteConfig.social.instagram} tone="pink" external>
           {siteConfig.social.instagramHandle}

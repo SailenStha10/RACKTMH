@@ -1,6 +1,8 @@
 import { Hero } from "@/components/home/Hero";
 import { FactsBar } from "@/components/home/FactsBar";
 import { AboutPreview } from "@/components/home/AboutPreview";
+import { ThemeSection } from "@/components/home/ThemeSection";
+import { ProjectsShowcase } from "@/components/home/ProjectsShowcase";
 import { FourAvenues } from "@/components/home/FourAvenues";
 import { EventsShowcase } from "@/components/home/EventsShowcase";
 import { ImpactStats } from "@/components/home/ImpactStats";
@@ -21,7 +23,13 @@ export default function HomePage() {
         <AboutPreview />
       </SectionShell>
       <SectionShell>
+        <ThemeSection />
+      </SectionShell>
+      <SectionShell>
         <FourAvenues />
+      </SectionShell>
+      <SectionShell>
+        <ProjectsShowcase />
       </SectionShell>
       <SectionShell>
         <EventsShowcase />

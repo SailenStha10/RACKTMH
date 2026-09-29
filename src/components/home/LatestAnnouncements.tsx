@@ -10,7 +10,7 @@ function LatestAnnouncements() {
   if (mockAnnouncements.length === 0) return null;
 
   return (
-    <Section eyebrow="Announcements" title="News and updates from the club.">
+    <Section title="News and updates from the club.">
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {mockAnnouncements.map((a, i) => (
           <Reveal key={a.id} delay={i * 0.1} y={40}>

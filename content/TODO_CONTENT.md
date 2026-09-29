@@ -35,5 +35,9 @@ Source of truth: CONTENT_BRIEF.md. Fill Section 4 of the brief and add files und
 ## Presidents' Night 2026 (Pokhara, co-host)
 - Exact date, photos, final wording
 
+## Projects carousel (homepage)
+- Three cards are real (Project Jyoti, Presidents' Night, Club Charter). Three are "Coming soon" placeholders (Next Project, Next Event, Next Service): send real projects with a photo each and they replace them (`src/components/projects/viscose/ring/projects.js`, images in `public/projects/`).
+- The carousel is adapted from Viscose by Yousuf Soomro (MIT); the licence is kept in `src/components/projects/viscose/LICENSE`.
+
 ## Instagram posts (brief 5)
 - Add `content/instagram/<date>-<slug>/post.md` plus images for each post. Until then: no upcoming events, no gallery albums, no announcements, and the impact statistics section is hidden.

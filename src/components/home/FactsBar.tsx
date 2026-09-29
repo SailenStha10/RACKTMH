@@ -11,12 +11,12 @@ function FactsBar() {
   ];
 
   return (
-    <section id="facts" className="bg-[#0f0f0f] py-10 text-white">
+    <section id="facts" className="bg-brand-primary py-10 text-white">
       <Container>
         <dl className="grid grid-cols-2 gap-8 text-center lg:grid-cols-4">
           {facts.map((fact, i) => (
             <Reveal key={fact.label} delay={i * 0.08} y={16}>
-              <dt className="text-label text-brand-accent font-medium tracking-wider">
+              <dt className="text-label font-medium tracking-wider text-white/70">
                 {fact.label}
               </dt>
               <dd className="mt-2 text-xl font-medium sm:text-2xl">

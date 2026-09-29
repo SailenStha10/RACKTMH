@@ -6,15 +6,13 @@ import { SplitTextReveal } from "@/components/motion/SplitTextReveal";
 interface SectionHeadingProps extends React.ComponentProps<"div"> {
   eyebrow?: string;
   title: string;
-  subtitle?: string;
   align?: "left" | "center";
 }
 
-/** Colours are inherited from the surrounding Section tone. */
+/** One small label and one big headline. Colours come from the surrounding Section tone. */
 function SectionHeading({
   eyebrow,
   title,
-  subtitle,
   align = "center",
   className,
   ...props
@@ -22,7 +20,7 @@ function SectionHeading({
   return (
     <div
       className={cn(
-        "flex flex-col gap-4",
+        "flex flex-col gap-5",
         align === "center" ? "items-center text-center" : "items-start",
         className,
       )}
@@ -30,20 +28,15 @@ function SectionHeading({
     >
       {eyebrow && (
         <Reveal y={8}>
-          <span className="text-label font-medium tracking-wider opacity-80">
+          <span className="text-label font-medium tracking-wider opacity-70">
             [{eyebrow.toUpperCase()}]
           </span>
         </Reveal>
       )}
       <SplitTextReveal
         text={title}
-        className="max-w-[24ch] text-[clamp(1.75rem,3.4vw,2.75rem)] leading-[1.1] font-medium tracking-tight sm:max-w-[28ch]"
+        className="max-w-[16ch] text-[clamp(2.5rem,6.5vw,5rem)] leading-none font-semibold tracking-[-0.04em] sm:max-w-[18ch]"
       />
-      {subtitle && (
-        <Reveal delay={0.15} y={12}>
-          <p className="max-w-xl text-base opacity-80">{subtitle}</p>
-        </Reveal>
-      )}
     </div>
   );
 }

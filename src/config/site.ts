@@ -9,7 +9,7 @@ export const siteConfig = {
     "We are a youth-led Rotaract club in Kathmandu, Nepal, bringing young people together for community service, leadership and fellowship.",
   vision: "[[TODO: club vision]]",
   mission:
-    "Rotaract brings together young people to exchange ideas with leaders in the community, develop leadership and professional skills, and take action through service, guided by the ideals of Service Above Self and Fellowship Through Service.",
+    "To bring young people together to grow as leaders, serve their communities and build lasting friendships.",
   rotaryYear: "2026-27",
   district: "District 3292",
   districtRegion: "Nepal and Bhutan",

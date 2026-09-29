@@ -3,40 +3,36 @@ import Link from "next/link";
 import { siteConfig } from "@/config/site";
 import { isTodo } from "@/lib/content";
 import { Container } from "@/components/layout/Container";
-import { Reveal } from "@/components/motion/Reveal";
 
 const linkClass =
-  "text-sm text-white transition-opacity hover:opacity-60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white";
-
-const headingClass = "mb-4 text-xs text-(--dark-muted)";
+  "text-sm text-white/80 transition-colors hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white";
 
 function Footer() {
   const year = new Date().getFullYear();
-  const connect = [
-    { label: "Instagram", href: siteConfig.social.instagram },
-    { label: "Facebook", href: siteConfig.social.facebook },
-    { label: "LinkedIn", href: siteConfig.social.linkedin },
-  ].filter((l) => l.href);
+  const contact = [
+    !isTodo(siteConfig.email) && {
+      label: siteConfig.email,
+      href: `mailto:${siteConfig.email}`,
+    },
+    !isTodo(siteConfig.phone) && {
+      label: siteConfig.phone,
+      href: `tel:${siteConfig.phone}`,
+    },
+  ].filter(Boolean) as { label: string; href: string }[];
 
   return (
-    <footer className="bg-(--dark) text-white">
-      <Container className="py-16 sm:py-20">
-        <Reveal className="flex flex-col justify-between gap-4 border-b border-(--dark-line) pb-8 sm:flex-row sm:items-center">
-          <Link href="/" className="text-xl font-medium tracking-tight">
+    <footer className="bg-[#0f0f0f] text-white">
+      <Container className="flex flex-col gap-6 py-8">
+        <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+          <Link
+            href="/"
+            className="text-base font-semibold tracking-tight focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+          >
             {siteConfig.shortName}
           </Link>
-          <p className="text-sm text-white">
-            Service Above Self. Fellowship Through Service.
-          </p>
-        </Reveal>
 
-        <Reveal
-          delay={0.1}
-          className="grid grid-cols-2 gap-10 py-12 sm:grid-cols-4"
-        >
-          <div>
-            <h3 className={headingClass}>#Explore</h3>
-            <ul className="flex flex-col gap-2">
+          <nav aria-label="Footer">
+            <ul className="flex flex-wrap gap-x-6 gap-y-2">
               {siteConfig.nav.map((item) => (
                 <li key={item.href}>
                   <Link href={item.href} className={linkClass}>
@@ -44,78 +40,38 @@ function Footer() {
                   </Link>
                 </li>
               ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className={headingClass}>#Projects</h3>
-            <ul className="flex flex-col gap-2">
               <li>
-                <Link href="/projects" className={linkClass}>
-                  Project Jyoti and more
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className={headingClass}>#Connect</h3>
-            <ul className="flex flex-col gap-2">
-              {connect.map((l) => (
-                <li key={l.label}>
-                  <a
-                    href={l.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={linkClass}
-                  >
-                    {l.label}
-                  </a>
-                </li>
-              ))}
-              <li>
-                <Link href="/join" className={linkClass}>
+                <Link
+                  href="/join"
+                  className="hover:text-brand-accent text-sm font-medium text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                >
                   Join us
                 </Link>
               </li>
             </ul>
-          </div>
+          </nav>
+        </div>
 
-          <div>
-            <h3 className={headingClass}>#Club</h3>
-            <ul className="flex flex-col gap-2 text-sm text-white">
-              <li>{siteConfig.address}</li>
-              <li>Rotary International {siteConfig.district}</li>
-              {!isTodo(siteConfig.email) && (
-                <li>
-                  <a href={`mailto:${siteConfig.email}`} className={linkClass}>
-                    {siteConfig.email}
-                  </a>
-                </li>
-              )}
-              {!isTodo(siteConfig.phone) && (
-                <li>
-                  <a href={`tel:${siteConfig.phone}`} className={linkClass}>
-                    {siteConfig.phone}
-                  </a>
-                </li>
-              )}
-            </ul>
-          </div>
-        </Reveal>
-
-        <div className="flex flex-col justify-between gap-2 border-t border-(--dark-line) pt-8 text-xs text-(--dark-muted) sm:flex-row">
+        <div className="flex flex-col gap-2 border-t border-white/10 pt-5 text-xs text-white/60 md:flex-row md:items-center md:justify-between">
           <p>
-            &copy; {year} {siteConfig.clubName}
+            &copy; {year} {siteConfig.clubName} &middot; {siteConfig.address}{" "}
+            &middot; RID 3292
           </p>
-          <a
-            href={siteConfig.social.instagram}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="transition-opacity hover:opacity-60"
-          >
-            {siteConfig.social.instagramHandle}
-          </a>
+          <p className="flex flex-wrap gap-x-4 gap-y-1">
+            {contact.map((c) => (
+              <a key={c.href} href={c.href} className="hover:text-white">
+                {c.label}
+              </a>
+            ))}
+            <a
+              href={siteConfig.social.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white"
+            >
+              {siteConfig.social.instagramHandle}
+            </a>
+          </p>
         </div>
       </Container>
     </footer>

@@ -1,61 +1,55 @@
+import Image from "next/image";
+
 import { siteConfig } from "@/config/site";
 import { Section } from "@/components/layout/Section";
-import { Reveal } from "@/components/motion/Reveal";
-import { PillLink } from "@/components/ui/PillLink";
 
-const CARD_TONES = [
-  "bg-[#0f0f0f] text-white",
-  "bg-white text-[#0f0f0f]",
-  "bg-brand-accent text-[#0f0f0f]",
-];
+type Leader = (typeof siteConfig.leaders)[number];
+
+function LeaderCard({ leader }: { leader: Leader }) {
+  return (
+    <figure className="w-40 shrink-0 sm:w-44">
+      <div className="relative aspect-4/5 overflow-hidden rounded-xl bg-[#fbeef3]">
+        <Image
+          src="/placeholders/portrait.svg"
+          alt=""
+          fill
+          sizes="176px"
+          className="object-cover"
+        />
+      </div>
+      <figcaption className="mt-3 text-center">
+        <p className="text-sm font-semibold">
+          {leader.handle || "To be announced"}
+        </p>
+        <p className="text-xs text-black/55">{leader.position}</p>
+      </figcaption>
+    </figure>
+  );
+}
 
 function BoardPreview() {
+  const leaders = siteConfig.leaders;
+  // Enough copies per half that the row always overflows a wide screen.
+  const half = Array.from({ length: 5 }).flatMap(() => leaders);
+
   return (
     <Section
-      tone="pink"
-      eyebrow="Our leadership"
-      title="The people guiding our first rotary year."
-      subtitle="Our charter board leads the club. Full names and portraits are coming soon."
+      eyebrow="Leadership"
+      title="Meet our leaders."
+      className="overflow-hidden"
     >
-      <ul className="mx-auto grid max-w-4xl gap-4 sm:grid-cols-3">
-        {siteConfig.leaders.map((leader, i) => (
-          <Reveal key={leader.position} as="li" delay={i * 0.1} y={30}>
-            <div
-              className={`flex h-full flex-col items-center gap-2 rounded-lg p-8 text-center ${CARD_TONES[i % CARD_TONES.length]}`}
-            >
-              <span
-                aria-hidden="true"
-                className="bg-brand-primary mb-2 flex size-16 items-center justify-center rounded-full text-2xl font-semibold text-white"
-              >
-                {leader.handle
-                  ? leader.handle.replace("@", "")[0].toUpperCase()
-                  : "?"}
-              </span>
-              <p className="text-label font-medium tracking-wider opacity-70">
-                {leader.position.toUpperCase()}
-              </p>
-              {leader.handle ? (
-                <a
-                  href={leader.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="focus-visible:outline-ring text-lg font-semibold underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-offset-2"
-                >
-                  {leader.handle}
-                </a>
-              ) : (
-                <p className="text-lg font-semibold">To be announced</p>
-              )}
-            </div>
-          </Reveal>
-        ))}
-      </ul>
-
-      <Reveal className="mt-10 flex justify-center">
-        <PillLink href="/team" tone="black">
-          Meet the team
-        </PillLink>
-      </Reveal>
+      <div className="-mx-4 overflow-x-auto motion-safe:overflow-hidden sm:-mx-6 lg:-mx-8">
+        <div className="motion-safe:hover:paused flex w-max gap-8 px-4 motion-safe:animate-[marquee_60s_linear_infinite]">
+          {half.map((leader, i) => (
+            <LeaderCard key={`a-${i}`} leader={leader} />
+          ))}
+          <div className="flex gap-8" aria-hidden="true">
+            {half.map((leader, i) => (
+              <LeaderCard key={`b-${i}`} leader={leader} />
+            ))}
+          </div>
+        </div>
+      </div>
     </Section>
   );
 }

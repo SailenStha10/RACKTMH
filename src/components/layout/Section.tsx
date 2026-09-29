@@ -3,10 +3,11 @@ import { cn } from "@/lib/utils";
 import { Container } from "@/components/layout/Container";
 import { SectionHeading } from "@/components/layout/SectionHeading";
 
-type SectionTone = "light" | "black" | "pink";
+type SectionTone = "light" | "blush" | "black" | "pink";
 
 const TONE_CLASSES: Record<SectionTone, string> = {
   light: "bg-background text-foreground",
+  blush: "bg-[#fbeef3] text-foreground",
   black: "bg-[#0f0f0f] text-white",
   pink: "bg-brand-primary text-white",
 };
@@ -14,7 +15,6 @@ const TONE_CLASSES: Record<SectionTone, string> = {
 interface SectionProps extends React.ComponentProps<"section"> {
   eyebrow?: string;
   title?: string;
-  subtitle?: string;
   align?: "left" | "center";
   tone?: SectionTone;
   action?: React.ReactNode;
@@ -24,7 +24,6 @@ interface SectionProps extends React.ComponentProps<"section"> {
 function Section({
   eyebrow,
   title,
-  subtitle,
   align = "center",
   tone = "light",
   action,
@@ -46,12 +45,7 @@ function Section({
               align === "center" ? "items-center" : "items-start",
             )}
           >
-            <SectionHeading
-              eyebrow={eyebrow}
-              title={title}
-              subtitle={subtitle}
-              align={align}
-            />
+            <SectionHeading eyebrow={eyebrow} title={title} align={align} />
             {action && <div className="shrink-0">{action}</div>}
           </div>
         )}

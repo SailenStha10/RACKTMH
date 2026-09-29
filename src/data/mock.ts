@@ -12,6 +12,15 @@ import type {
 
 export const mockUpcomingEvents: EventCard[] = [];
 
+// Only verified event: the district Presidents' Night the club co-hosts (date not yet confirmed).
+export const mockFeaturedEvent = {
+  title: "Rotaract District 3292 Presidents' Night 2026",
+  tag: "District event, co-host",
+  dateLabel: "Date to be confirmed",
+  venue: "Pokhara, Nepal",
+  image: "/events/presidents-night.svg",
+};
+
 export const mockFeaturedProjects: ProjectCard[] = [
   {
     id: "prj-jyoti",

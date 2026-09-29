@@ -18,19 +18,27 @@ export const siteConfig = {
   sponsorClubVerified: false,
   charterDate: "6 January 2026",
   clubId: "8827984",
+  // Display order, left to right.
   leaders: [
-    {
-      position: "Charter President",
-      handle: "@josh.sth",
-      href: "https://www.instagram.com/josh.sth/",
-    },
     {
       position: "Secretary",
       handle: "@sailennn_",
       href: "https://www.instagram.com/sailennn_/",
     },
-    { position: "Treasurer", handle: "", href: "" },
+    { position: "President Elect", handle: "", href: "" },
+    {
+      position: "President",
+      handle: "@josh.sth",
+      href: "https://www.instagram.com/josh.sth/",
+    },
+    { position: "Vice President", handle: "", href: "" },
+    {
+      position: "Treasurer",
+      handle: "@swarneem_dhl",
+      href: "https://www.instagram.com/swarneem_dhl/",
+    },
   ],
+
   email: "[[TODO: club email]]",
   phone: "[[TODO: club phone]]",
   address: "Kathmandu, Nepal",

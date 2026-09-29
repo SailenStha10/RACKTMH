@@ -51,7 +51,7 @@ function Hero() {
 
       <div className="absolute inset-x-4 bottom-20 z-[5] sm:inset-x-8 lg:right-16 lg:left-auto lg:w-[min(56rem,90vw)]">
         <Reveal y={8}>
-          <p className="text-[#0f0f0f] mb-4 text-xs font-medium tracking-[0.19em] uppercase">
+          <p className="mb-4 text-xs font-medium tracking-[0.19em] text-[#0f0f0f] uppercase">
             Rotary year {rotaryYear} &middot; RID 3292 &middot; Chartered{" "}
             {siteConfig.charterDate}
           </p>

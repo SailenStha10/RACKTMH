@@ -136,13 +136,6 @@ function Navbar() {
           </Sheet>
         </div>
       </header>
-
-      <Link
-        href="/join"
-        className="bg-brand-accent focus-visible:outline-ring fixed top-1/3 left-0 z-40 hidden rounded-r-md px-2 py-4 text-xs text-[#0f0f0f] transition-colors [writing-mode:vertical-rl] hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 sm:block"
-      >
-        <span className="rotate-180">Join the club</span>
-      </Link>
     </>
   );
 }

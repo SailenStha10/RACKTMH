@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="g-hero" x1="74.99999999999999%" y1="6.698729810778062%" x2="25.00000000000001%" y2="93.30127018922194%">
+      <stop offset="0%" stop-color="#D41367"/><stop offset="100%" stop-color="#17458F"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#g-hero)"/>
+</svg>

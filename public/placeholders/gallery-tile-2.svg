@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="800" viewBox="0 0 800 800">
+  <defs>
+    <linearGradient id="g-gal-2" x1="14.644660940672622%" y1="14.64466094067263%" x2="85.35533905932738%" y2="85.35533905932738%">
+      <stop offset="0%" stop-color="#17458F"/><stop offset="100%" stop-color="#F7A81B"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="800" fill="url(#g-gal-2)"/>
+</svg>

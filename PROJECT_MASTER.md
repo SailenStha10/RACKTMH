@@ -1366,7 +1366,7 @@ Claude Code updates this section after each ticket.
 | T-101 | Design system and theme | [x] | 2026-09-29 |
 | T-102 | Public layout: Navbar and Footer | [x] | 2026-09-29 |
 | T-103 | Hero section | [x] | 2026-09-29 |
-| T-104 | About preview and Impact statistics | [ ] | |
+| T-104 | About preview and Impact statistics | [x] | 2026-09-29 |
 | T-105 | Upcoming events and Featured projects | [ ] | |
 | T-106 | Board, Recognition, Gallery, Announcements, CTA | [ ] | |
 | T-107 | Landing polish, SEO, a11y — REVIEW GATE | [ ] | |

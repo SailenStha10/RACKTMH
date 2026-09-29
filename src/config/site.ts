@@ -3,6 +3,10 @@ export const siteConfig = {
   shortName: "Rotaract Example",
   tagline: "Service Above Self",
   theme: "Empowering Communities, Enriching Lives",
+  vision:
+    "A world where individuals unite and take action to create lasting change, within communities and across the globe.",
+  mission:
+    "To provide an opportunity for young men and women to enhance the knowledge and skills that will assist them in personal development, to address the physical and social needs of their communities, and to promote better relations between all people worldwide through a framework of friendship and service.",
   rotaryYear: "2026-27",
   district: "District 3292",
   sponsorClub: "Rotary Club of Example",

@@ -1,0 +1,33 @@
+import { mockImpactStats } from "@/data/mock"
+import { Section } from "@/components/layout/Section"
+import { CountUpStat } from "@/components/home/CountUpStat"
+
+function ImpactStats() {
+  return (
+    <Section
+      id="impact"
+      eyebrow="Our Impact"
+      title="Making a Difference, Together"
+      subtitle="A snapshot of what our members have accomplished through service and dedication."
+      className="bg-muted/40"
+    >
+      <dl className="grid grid-cols-2 gap-6 lg:grid-cols-4">
+        {mockImpactStats.map((stat) => (
+          <div
+            key={stat.label}
+            className="flex flex-col items-center gap-1 rounded-xl bg-card px-4 py-8 text-center ring-1 ring-foreground/10"
+          >
+            <dt className="order-2 text-sm font-medium text-muted-foreground">
+              {stat.label}
+            </dt>
+            <dd className="order-1 font-heading text-4xl font-bold text-brand-primary sm:text-5xl">
+              <CountUpStat value={stat.value} suffix={stat.suffix} />
+            </dd>
+          </div>
+        ))}
+      </dl>
+    </Section>
+  )
+}
+
+export { ImpactStats }

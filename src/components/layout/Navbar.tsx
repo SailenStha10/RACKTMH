@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
@@ -21,13 +22,21 @@ function isActive(pathname: string, href: string) {
   return pathname === href || pathname.startsWith(`${href}/`);
 }
 
-function Wordmark() {
+function Logo() {
   return (
     <Link
       href="/"
-      className="focus-visible:outline-ring rounded-sm text-sm font-medium tracking-tight text-white focus-visible:outline-2 focus-visible:outline-offset-4"
+      aria-label={`${siteConfig.clubName} home`}
+      className="focus-visible:outline-ring rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4"
     >
-      {siteConfig.shortName}
+      <Image
+        src="/brand/club-logo.png"
+        alt={siteConfig.clubName}
+        width={583}
+        height={170}
+        priority
+        className="h-11 w-auto"
+      />
     </Link>
   );
 }
@@ -51,8 +60,8 @@ function NavLink({
       onClick={onNavigate}
       aria-current={active ? "page" : undefined}
       className={cn(
-        "focus-visible:outline-ring rounded-sm text-sm text-white transition-opacity hover:opacity-60 focus-visible:outline-2 focus-visible:outline-offset-2",
-        active ? "text-brand-primary opacity-100" : "opacity-80",
+        "hover:text-brand-primary focus-visible:outline-ring rounded-sm text-sm font-medium transition-colors focus-visible:outline-2 focus-visible:outline-offset-2",
+        active ? "text-brand-primary" : "text-[#0f0f0f]/80",
         className,
       )}
     >
@@ -67,8 +76,8 @@ function Navbar() {
   return (
     <>
       <header className="pointer-events-none fixed inset-x-0 top-3 z-40 px-3 sm:top-4 sm:px-6">
-        <div className="pointer-events-auto mx-auto flex h-14 max-w-5xl items-center justify-between rounded-full bg-[#0f0f0f]/90 pr-2 pl-6 text-white shadow-[0_12px_40px_-12px_rgba(0,0,0,0.5)] ring-1 ring-white/10 backdrop-blur-md">
-          <Wordmark />
+        <div className="pointer-events-auto mx-auto flex h-14 max-w-5xl items-center justify-between rounded-full bg-white/55 pr-2 pl-5 shadow-[0_12px_40px_-14px_rgba(0,0,0,0.35)] ring-1 ring-white/60 backdrop-blur-xl backdrop-saturate-150">
+          <Logo />
 
           <nav
             aria-label="Main"
@@ -85,7 +94,7 @@ function Navbar() {
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="rounded-full text-white hover:bg-white/10 hover:text-white md:hidden"
+                  className="rounded-full text-[#0f0f0f] hover:bg-black/5 md:hidden"
                 >
                   <Menu className="size-5" aria-hidden="true" />
                   <span className="sr-only">Open menu</span>
@@ -102,7 +111,7 @@ function Navbar() {
                     key={item.href}
                     href={item.href}
                     label={item.label}
-                    className="text-foreground text-base"
+                    className="text-base"
                     onNavigate={() => setMobileOpen(false)}
                   />
                 ))}

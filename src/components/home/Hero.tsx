@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { siteConfig } from "@/config/site";
 import { isTodo } from "@/lib/content";
 import { getCurrentRotaryYear } from "@/lib/rotary-year";
@@ -27,6 +29,25 @@ function Hero() {
         className="pointer-events-none absolute inset-x-0 bottom-0 z-[3] h-[28vh] bg-linear-to-b from-transparent via-white/75 to-white"
         aria-hidden="true"
       />
+
+      <div className="absolute top-24 left-4 z-[5] flex items-center gap-4 sm:top-28 sm:left-10 sm:gap-8">
+        <Image
+          src="/brand/club-logo.png"
+          alt="Rotaract Club of Kathmandu Height logo"
+          width={583}
+          height={170}
+          priority
+          className="h-10 w-auto sm:h-14 lg:h-16"
+        />
+        <Image
+          src="/brand/theme-logo.png"
+          alt="Presidential theme logo: Developing Competent Leaders"
+          width={434}
+          height={228}
+          priority
+          className="h-12 w-auto mix-blend-multiply sm:h-16 lg:h-20"
+        />
+      </div>
 
       <div className="absolute inset-x-4 bottom-20 z-[5] sm:inset-x-8 lg:right-16 lg:left-auto lg:w-[min(56rem,90vw)]">
         <Reveal y={8}>

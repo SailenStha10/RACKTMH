@@ -44,9 +44,7 @@ export default function HomePage() {
       <SectionShell>
         <InstagramStrip />
       </SectionShell>
-      <SectionShell>
-        <MembershipCTA />
-      </SectionShell>
+      <MembershipCTA />
     </>
   );
 }

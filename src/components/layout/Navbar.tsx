@@ -81,11 +81,17 @@ function Navbar() {
 
           <nav
             aria-label="Main"
-            className="hidden items-center gap-5 pr-4 md:flex lg:gap-7"
+            className="hidden items-center gap-5 md:flex lg:gap-7"
           >
             {siteConfig.nav.map((item) => (
               <NavLink key={item.href} href={item.href} label={item.label} />
             ))}
+            <Link
+              href="/join"
+              className="bg-brand-primary focus-visible:outline-ring rounded-full px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-[#0f0f0f] focus-visible:outline-2 focus-visible:outline-offset-2"
+            >
+              Join us
+            </Link>
           </nav>
 
           <Sheet open={mobileOpen} onOpenChange={setMobileOpen}>

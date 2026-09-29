@@ -39,14 +39,13 @@ export const siteConfig = {
   social: {
     instagram: "https://www.instagram.com/rackathmanduheight/",
     instagramHandle: "@rackathmanduheight",
-    facebook: "",
-    linkedin: "",
+    facebook: "https://www.facebook.com/profile.php?id=61579900771713",
+    linkedin: "https://www.linkedin.com/company/137054140/",
   },
   nav: [
     { label: "Home", href: "/" },
     { label: "About", href: "/about" },
     { label: "Team", href: "/team" },
-    { label: "Events", href: "/events" },
     { label: "Projects", href: "/projects" },
     { label: "Gallery", href: "/gallery" },
     { label: "Contact", href: "/contact" },

@@ -63,14 +63,26 @@ function Footer() {
                 {c.label}
               </a>
             ))}
-            <a
-              href={siteConfig.social.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-white"
-            >
-              {siteConfig.social.instagramHandle}
-            </a>
+            {[
+              {
+                label: siteConfig.social.instagramHandle,
+                href: siteConfig.social.instagram,
+              },
+              { label: "Facebook", href: siteConfig.social.facebook },
+              { label: "LinkedIn", href: siteConfig.social.linkedin },
+            ]
+              .filter((l) => l.href)
+              .map((l) => (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white"
+                >
+                  {l.label}
+                </a>
+              ))}
           </p>
         </div>
       </Container>

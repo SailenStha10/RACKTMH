@@ -30,14 +30,14 @@ function Hero() {
         aria-hidden="true"
       />
 
-      <div className="absolute top-24 left-4 z-[5] flex items-center gap-4 sm:top-28 sm:left-10 sm:gap-8">
+      <div className="absolute top-24 left-4 z-[5] flex items-center gap-4 sm:top-28 sm:left-10 sm:gap-10">
         <Image
           src="/brand/club-logo.png"
           alt="Rotaract Club of Kathmandu Height logo"
           width={583}
           height={170}
           priority
-          className="h-10 w-auto sm:h-14 lg:h-16"
+          className="h-14 w-auto sm:h-24 lg:h-32"
         />
         <Image
           src="/brand/theme-logo.png"
@@ -45,7 +45,7 @@ function Hero() {
           width={434}
           height={228}
           priority
-          className="h-12 w-auto mix-blend-multiply sm:h-16 lg:h-20"
+          className="h-16 w-auto mix-blend-multiply sm:h-28 lg:h-36"
         />
       </div>
 

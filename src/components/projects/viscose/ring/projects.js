@@ -1,7 +1,13 @@
-// Ring order for the events carousel. Only Presidents' Night 2026 is a
-// verified event; the rest are placeholders until real events are announced
-// (see content/TODO_CONTENT.md). Nothing here is invented.
+// Ring order for the projects carousel. Project Jyoti and the Presidents' Night
+// co-host are verified; the rest are placeholders until more projects are
+// documented (see content/TODO_CONTENT.md). Nothing here is invented.
 export const PROJECTS = [
+  {
+    file: "projects/jyoti.svg",
+    name: "Project Jyoti",
+    type: "Community Service",
+    year: "2026",
+  },
   {
     file: "events/presidents-night.svg",
     name: "Presidents' Night",
@@ -10,32 +16,26 @@ export const PROJECTS = [
   },
   {
     file: "events/next-1.svg",
-    name: "Next Event",
-    type: "To be announced",
+    name: "Next Project",
+    type: "Coming soon",
     year: "2026",
   },
   {
     file: "events/next-2.svg",
-    name: "Next Event",
-    type: "To be announced",
+    name: "Next Project",
+    type: "Coming soon",
     year: "2026",
   },
   {
     file: "events/next-3.svg",
-    name: "Next Event",
-    type: "To be announced",
+    name: "Next Project",
+    type: "Coming soon",
     year: "2026",
   },
   {
     file: "events/next-4.svg",
-    name: "Next Event",
-    type: "To be announced",
-    year: "2026",
-  },
-  {
-    file: "events/next-5.svg",
-    name: "Next Event",
-    type: "To be announced",
+    name: "Next Project",
+    type: "Coming soon",
     year: "2026",
   },
 ];

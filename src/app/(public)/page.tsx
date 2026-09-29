@@ -32,11 +32,11 @@ export default function HomePage() {
         <ProjectsShowcase />
       </SectionShell>
       <SectionShell>
-        <EventsShowcase />
-      </SectionShell>
-      <SectionShell>
         <ImpactStats />
         <BoardPreview />
+      </SectionShell>
+      <SectionShell>
+        <EventsShowcase />
       </SectionShell>
       <RotaractorOfTheMonth />
       <LatestAnnouncements />

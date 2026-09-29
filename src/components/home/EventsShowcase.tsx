@@ -4,11 +4,10 @@ import { siteConfig } from "@/config/site";
 import { mockFeaturedEvent } from "@/data/mock";
 import { Container } from "@/components/layout/Container";
 import { SectionHeading } from "@/components/layout/SectionHeading";
-import { ProjectsCarousel } from "@/components/projects/ProjectsCarousel";
 import { Reveal } from "@/components/motion/Reveal";
 import { PillLink } from "@/components/ui/PillLink";
 
-/** Highlighted event followed by the centred ring carousel (adapted from Viscose, MIT). */
+/** Upcoming events: the latest event as a highlight. */
 function EventsShowcase() {
   const event = mockFeaturedEvent;
 
@@ -53,10 +52,6 @@ function EventsShowcase() {
           </article>
         </Reveal>
       </Container>
-
-      <div className="mt-12">
-        <ProjectsCarousel />
-      </div>
     </section>
   );
 }

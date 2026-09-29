@@ -1,15 +1,17 @@
-import Image from "next/image"
-import Link from "next/link"
-import { HeartHandshake } from "lucide-react"
+import Image from "next/image";
+import Link from "next/link";
+import { HeartHandshake } from "lucide-react";
 
-import { siteConfig } from "@/config/site"
-import { getCurrentRotaryYear } from "@/lib/rotary-year"
-import { Container } from "@/components/layout/Container"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
+import { siteConfig } from "@/config/site";
+import { getCurrentRotaryYear } from "@/lib/rotary-year";
+import { isTodo } from "@/lib/content";
+import { Container } from "@/components/layout/Container";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 
 function Hero() {
-  const rotaryYear = getCurrentRotaryYear()
+  const rotaryYear = getCurrentRotaryYear();
+  const hasTheme = !isTodo(siteConfig.theme);
 
   return (
     <section className="relative isolate flex min-h-[85vh] items-center overflow-hidden">
@@ -21,7 +23,7 @@ function Hero() {
         sizes="100vw"
         className="object-cover"
       />
-      <div className="absolute inset-0 bg-gradient-to-br from-brand-secondary/95 via-brand-primary/85 to-brand-primary/70" />
+      <div className="from-brand-secondary/95 via-brand-primary/85 to-brand-primary/70 absolute inset-0 bg-gradient-to-br" />
       <div className="absolute inset-0 bg-black/20" />
 
       <Container className="relative z-10 py-24 sm:py-32">
@@ -43,14 +45,11 @@ function Hero() {
           </Badge>
 
           <h1 className="font-heading text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
-            {siteConfig.theme}
+            {hasTheme ? siteConfig.theme : siteConfig.tagline}
           </h1>
 
           <p className="max-w-xl text-lg text-white/90 sm:text-xl">
-            {siteConfig.tagline} &mdash; we&apos;re a community of young
-            professionals and students serving {siteConfig.address} through
-            hands-on projects, leadership development and lasting
-            friendships.
+            {siteConfig.intro}
           </p>
 
           <div className="flex flex-col gap-3 sm:flex-row">
@@ -69,7 +68,7 @@ function Hero() {
         </div>
       </Container>
     </section>
-  )
+  );
 }
 
-export { Hero }
+export { Hero };

@@ -1,24 +1,31 @@
+// Values come from CONTENT_BRIEF.md Sections 2 and 4.1.
+// Anything not yet supplied is a [[TODO: ...]] placeholder tracked in content/TODO_CONTENT.md.
 export const siteConfig = {
-  clubName: "Rotaract Club of Example",
-  shortName: "Rotaract Example",
+  clubName: "Rotaract Club of Kathmandu Height",
+  shortName: "RAC Kathmandu Height",
   tagline: "Service Above Self",
-  theme: "Empowering Communities, Enriching Lives",
-  vision:
-    "A world where individuals unite and take action to create lasting change, within communities and across the globe.",
+  theme: "[[TODO: club or rotary-year theme]]",
+  intro:
+    "We are a youth-led Rotaract club in Kathmandu, Nepal, bringing young people together for community service, leadership and fellowship.",
+  vision: "[[TODO: club vision]]",
   mission:
-    "To provide an opportunity for young men and women to enhance the knowledge and skills that will assist them in personal development, to address the physical and social needs of their communities, and to promote better relations between all people worldwide through a framework of friendship and service.",
+    "Rotaract brings together young people to exchange ideas with leaders in the community, develop leadership and professional skills, and take action through service, guided by the ideals of Service Above Self and Fellowship Through Service.",
   rotaryYear: "2026-27",
   district: "District 3292",
-  sponsorClub: "Rotary Club of Example",
-  charterDate: "2015-07-01",
-  email: "info@rotaractexample.org",
-  phone: "+977-1-0000000",
+  districtRegion: "Nepal and Bhutan",
+  sponsorClub: "Rotary Club of Kathmandu Height",
+  sponsorClubVerified: false,
+  charterDate: "[[TODO: Rotaract club charter date]]",
+  email: "[[TODO: club email]]",
+  phone: "[[TODO: club phone]]",
   address: "Kathmandu, Nepal",
+  meetingPlace: "[[TODO: meeting place]]",
+  meetingSchedule: "[[TODO: meeting schedule]]",
   social: {
-    facebook: "https://facebook.com/rotaractexample",
-    instagram: "https://instagram.com/rotaractexample",
-    linkedin: "https://linkedin.com/company/rotaractexample",
-    website: "https://rotaractexample.org",
+    instagram: "https://www.instagram.com/rackathmanduheight/",
+    instagramHandle: "@rackathmanduheight",
+    facebook: "",
+    linkedin: "",
   },
   nav: [
     { label: "Home", href: "/" },
@@ -29,6 +36,6 @@ export const siteConfig = {
     { label: "Gallery", href: "/gallery" },
     { label: "Contact", href: "/contact" },
   ],
-} as const
+} as const;
 
-export type SiteConfig = typeof siteConfig
+export type SiteConfig = typeof siteConfig;

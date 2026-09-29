@@ -7,6 +7,7 @@ import { BoardPreview } from "@/components/home/BoardPreview"
 import { RotaractorOfTheMonth } from "@/components/home/RotaractorOfTheMonth"
 import { LatestAnnouncements } from "@/components/home/LatestAnnouncements"
 import { GalleryPreview } from "@/components/home/GalleryPreview"
+import { InstagramStrip } from "@/components/home/InstagramStrip"
 import { MembershipCTA } from "@/components/home/MembershipCTA"
 
 export default function HomePage() {
@@ -21,6 +22,7 @@ export default function HomePage() {
       <RotaractorOfTheMonth />
       <LatestAnnouncements />
       <GalleryPreview />
+      <InstagramStrip />
       <MembershipCTA />
     </>
   )

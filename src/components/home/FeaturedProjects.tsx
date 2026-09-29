@@ -1,13 +1,13 @@
-import Link from "next/link"
-import { FolderX } from "lucide-react"
+import Link from "next/link";
+import { FolderX } from "lucide-react";
 
-import { mockFeaturedProjects } from "@/data/mock"
-import { Section } from "@/components/layout/Section"
-import { ProjectCard } from "@/components/projects/ProjectCard"
-import { Button } from "@/components/ui/button"
+import { mockFeaturedProjects } from "@/data/mock";
+import { Section } from "@/components/layout/Section";
+import { ProjectCard } from "@/components/projects/ProjectCard";
+import { Button } from "@/components/ui/button";
 
 function FeaturedProjects() {
-  const projects = mockFeaturedProjects
+  const projects = mockFeaturedProjects;
 
   return (
     <Section
@@ -29,15 +29,18 @@ function FeaturedProjects() {
           ))}
         </div>
       ) : (
-        <div className="flex flex-col items-center gap-3 rounded-xl border border-dashed border-border py-16 text-center">
-          <FolderX className="size-10 text-muted-foreground" aria-hidden="true" />
-          <p className="text-sm text-muted-foreground">
+        <div className="border-border flex flex-col items-center gap-3 rounded-xl border border-dashed py-16 text-center">
+          <FolderX
+            className="text-muted-foreground size-10"
+            aria-hidden="true"
+          />
+          <p className="text-muted-foreground text-sm">
             No featured projects yet. Check back soon.
           </p>
         </div>
       )}
     </Section>
-  )
+  );
 }
 
-export { FeaturedProjects }
+export { FeaturedProjects };

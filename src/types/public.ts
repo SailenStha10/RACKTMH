@@ -1,70 +1,74 @@
-export type EventRegistrationState = "open" | "closed" | "not_required"
+export type EventRegistrationState = "open" | "closed" | "not_required";
 
 export type AvenueOfService =
   | "CLUB_SERVICE"
   | "COMMUNITY_SERVICE"
   | "PROFESSIONAL_DEVELOPMENT"
-  | "INTERNATIONAL_SERVICE"
+  | "INTERNATIONAL_SERVICE";
 
 export interface EventCard {
-  id: string
-  slug: string
-  title: string
-  posterUrl: string
-  category?: string
-  startAt: Date
-  endAt?: Date
-  venue: string
-  registrationState: EventRegistrationState
+  id: string;
+  slug: string;
+  title: string;
+  posterUrl: string;
+  category?: string;
+  startAt: Date;
+  endAt?: Date;
+  venue: string;
+  registrationState: EventRegistrationState;
 }
 
 export interface ProjectCard {
-  id: string
-  slug: string
-  title: string
-  coverUrl: string
-  avenue: AvenueOfService
-  startDate: Date
-  summary: string
+  id: string;
+  slug: string;
+  title: string;
+  coverUrl: string;
+  avenue: AvenueOfService;
+  /** Exact start date when known. */
+  startDate?: Date;
+  /** Human-readable date used when the exact date is unknown, e.g. "July 2026". */
+  dateLabel?: string;
+  summary: string;
+  isInternational?: boolean;
 }
 
 export interface BoardMemberCard {
-  id: string
-  slug: string
-  fullName: string
-  position: string
-  photoUrl: string
+  id: string;
+  slug: string;
+  fullName: string;
+  position: string;
+  photoUrl: string;
 }
 
 export interface GalleryAlbumCard {
-  id: string
-  slug: string
-  title: string
-  coverUrl: string
-  imageCount: number
+  id: string;
+  slug: string;
+  title: string;
+  coverUrl: string;
+  imageCount: number;
 }
 
 export interface ImpactStat {
-  label: string
-  value: number
-  suffix?: string
+  label: string;
+  value: number;
+  suffix?: string;
 }
 
 export interface RecognitionCard {
-  id: string
-  memberSlug: string
-  fullName: string
-  photoUrl: string
-  month: number
-  year: number
-  achievement: string
+  id: string;
+  memberSlug: string;
+  fullName: string;
+  photoUrl: string;
+  month: number;
+  year: number;
+  achievement: string;
 }
 
 export interface AnnouncementCard {
-  id: string
-  slug: string
-  title: string
-  excerpt: string
-  imageUrl?: string
-  publishedAt: Date
+  id: string;
+  slug: string;
+  title: string;
+  excerpt: string;
+  imageUrl?: string;
+  publishedAt: Date;
 }

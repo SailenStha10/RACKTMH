@@ -23,10 +23,10 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${siteConfig.clubName} | ${siteConfig.theme}`,
+    default: `${siteConfig.clubName} | ${siteConfig.tagline}`,
     template: `%s | ${siteConfig.shortName}`,
   },
-  description: `${siteConfig.tagline}. ${siteConfig.clubName} is a Rotaract club sponsored by ${siteConfig.sponsorClub}, serving ${siteConfig.address} through community service, leadership development and fellowship.`,
+  description: `${siteConfig.clubName} is a youth-led Rotaract club in ${siteConfig.address}, part of Rotary International ${siteConfig.district}, working through community service, leadership development and fellowship.`,
   openGraph: {
     type: "website",
     locale: "en_US",

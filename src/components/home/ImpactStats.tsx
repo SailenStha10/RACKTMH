@@ -1,8 +1,10 @@
-import { mockImpactStats } from "@/data/mock"
-import { Section } from "@/components/layout/Section"
-import { CountUpStat } from "@/components/home/CountUpStat"
+import { mockImpactStats } from "@/data/mock";
+import { Section } from "@/components/layout/Section";
+import { CountUpStat } from "@/components/home/CountUpStat";
 
 function ImpactStats() {
+  if (mockImpactStats.length === 0) return null;
+
   return (
     <Section
       id="impact"
@@ -15,19 +17,19 @@ function ImpactStats() {
         {mockImpactStats.map((stat) => (
           <div
             key={stat.label}
-            className="flex flex-col items-center gap-1 rounded-xl bg-card px-4 py-8 text-center ring-1 ring-foreground/10"
+            className="bg-card ring-foreground/10 flex flex-col items-center gap-1 rounded-xl px-4 py-8 text-center ring-1"
           >
-            <dt className="order-2 text-sm font-medium text-muted-foreground">
+            <dt className="text-muted-foreground order-2 text-sm font-medium">
               {stat.label}
             </dt>
-            <dd className="order-1 font-heading text-4xl font-bold text-brand-primary sm:text-5xl">
+            <dd className="font-heading text-brand-primary order-1 text-4xl font-bold sm:text-5xl">
               <CountUpStat value={stat.value} suffix={stat.suffix} />
             </dd>
           </div>
         ))}
       </dl>
     </Section>
-  )
+  );
 }
 
-export { ImpactStats }
+export { ImpactStats };

@@ -1,13 +1,14 @@
-import Link from "next/link"
-import { CalendarX } from "lucide-react"
+import Link from "next/link";
+import { CalendarX } from "lucide-react";
 
-import { mockUpcomingEvents } from "@/data/mock"
-import { Section } from "@/components/layout/Section"
-import { EventCard } from "@/components/events/EventCard"
-import { Button } from "@/components/ui/button"
+import { siteConfig } from "@/config/site";
+import { mockUpcomingEvents } from "@/data/mock";
+import { Section } from "@/components/layout/Section";
+import { EventCard } from "@/components/events/EventCard";
+import { Button } from "@/components/ui/button";
 
 function UpcomingEvents() {
-  const events = mockUpcomingEvents
+  const events = mockUpcomingEvents;
 
   return (
     <Section
@@ -28,15 +29,27 @@ function UpcomingEvents() {
           ))}
         </div>
       ) : (
-        <div className="flex flex-col items-center gap-3 rounded-xl border border-dashed border-border py-16 text-center">
-          <CalendarX className="size-10 text-muted-foreground" aria-hidden="true" />
-          <p className="text-sm text-muted-foreground">
-            No upcoming events right now. Check back soon.
+        <div className="border-border flex flex-col items-center gap-3 rounded-xl border border-dashed py-16 text-center">
+          <CalendarX
+            className="text-muted-foreground size-10"
+            aria-hidden="true"
+          />
+          <p className="text-muted-foreground text-sm">
+            New events coming soon. Follow us on{" "}
+            <a
+              href={siteConfig.social.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-brand-primary font-medium underline underline-offset-4"
+            >
+              Instagram
+            </a>
+            .
           </p>
         </div>
       )}
     </Section>
-  )
+  );
 }
 
-export { UpcomingEvents }
+export { UpcomingEvents };

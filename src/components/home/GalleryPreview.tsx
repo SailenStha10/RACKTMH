@@ -1,11 +1,13 @@
-import Image from "next/image"
-import Link from "next/link"
+import Image from "next/image";
+import Link from "next/link";
 
-import { mockGalleryAlbums } from "@/data/mock"
-import { Section } from "@/components/layout/Section"
-import { Button } from "@/components/ui/button"
+import { mockGalleryAlbums } from "@/data/mock";
+import { Section } from "@/components/layout/Section";
+import { Button } from "@/components/ui/button";
 
 function GalleryPreview() {
+  if (mockGalleryAlbums.length === 0) return null;
+
   return (
     <Section
       eyebrow="Moments"
@@ -42,7 +44,7 @@ function GalleryPreview() {
         ))}
       </div>
     </Section>
-  )
+  );
 }
 
-export { GalleryPreview }
+export { GalleryPreview };

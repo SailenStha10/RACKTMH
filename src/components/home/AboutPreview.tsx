@@ -22,18 +22,23 @@ function AboutPreview() {
       : `Our mission is to ${lowerFirst(stripEnds(siteConfig.mission))}, guided by our vision of ${lowerFirst(stripEnds(siteConfig.vision))}.`;
 
   return (
-    <section id="about" className="bg-[#0f0f0f] text-white">
-      <Container className="pt-32 pb-14 sm:pt-40 sm:pb-16">
+    <section id="about" className="bg-white text-[#0f0f0f]">
+      <Container className="relative z-10 pt-32 sm:pt-40">
         <SectionHeading title="A youth-led club serving Kathmandu." />
       </Container>
 
-      <div className="relative isolate flex min-h-[90svh] items-end overflow-hidden">
+      <div className="relative isolate -mt-8 flex min-h-[90svh] items-end overflow-hidden sm:-mt-14">
         <Image
           src="/about/team.png"
           alt="Members of the Rotaract Club of Kathmandu Height at a club event"
           fill
           sizes="100vw"
           className="-z-20 object-cover"
+        />
+        {/* Soft white fade at the top so the headline reads where it overlaps the photo. */}
+        <div
+          className="absolute inset-x-0 top-0 -z-10 h-40 bg-linear-to-b from-white/85 to-transparent"
+          aria-hidden="true"
         />
         <div
           className="absolute inset-0 -z-10 bg-linear-to-t from-[#0f0f0f]/70 via-transparent to-transparent"

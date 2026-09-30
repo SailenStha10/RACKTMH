@@ -1371,7 +1371,7 @@ Claude Code updates this section after each ticket.
 | T-105 | Upcoming events and Featured projects | [x] | 2026-09-29 |
 | T-106 | Board, Recognition, Gallery, Announcements, CTA | [x] | 2026-09-29 |
 | T-107 | Landing polish, SEO, a11y — REVIEW GATE | [x] | 2026-09-29 |
-| T-201 | Neon database setup | [ ] | |
+| T-201 | Neon database setup | [x] | 2026-09-30 |
 | T-202 | Install and configure Prisma | [ ] | |
 | T-203 | Implement full Prisma schema | [ ] | |
 | T-204 | Seed script | [ ] | |

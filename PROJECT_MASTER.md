@@ -1377,7 +1377,7 @@ Claude Code updates this section after each ticket.
 | T-204 | Seed script | [x] | 2026-09-30 |
 | T-205 | Data access layer | [x] | 2026-09-30 |
 | T-206 | Connect landing page to database | [x] | 2026-09-30 |
-| T-301 | Auth.js setup | [ ] | |
+| T-301 | Auth.js setup | [x] | 2026-09-30 |
 | T-302 | Admin route protection | [ ] | |
 | T-303 | Login page and session UI | [ ] | |
 | T-401 | Admin layout and dashboard | [ ] | |

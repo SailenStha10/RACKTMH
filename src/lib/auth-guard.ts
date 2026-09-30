@@ -16,13 +16,13 @@ async function getActiveAdmin(): Promise<UserModel | null> {
 }
 
 /**
- * For Server Components / admin pages. Redirects to /login when there is no
- * valid, active admin session.
+ * For Server Components / admin pages. Redirects to /admin (the sign-in
+ * gateway) when there is no valid, active admin session.
  */
 async function requireAdmin(): Promise<UserModel> {
   const user = await getActiveAdmin()
   if (!user) {
-    redirect("/login")
+    redirect("/admin")
   }
   return user
 }

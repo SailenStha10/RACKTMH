@@ -24,7 +24,7 @@ function getClientIp(request: Request): string {
 
 export const { handlers, auth, signIn, signOut } = NextAuth({
   session: { strategy: "jwt" },
-  pages: { signIn: "/login" },
+  pages: { signIn: "/admin" },
   providers: [
     Credentials({
       credentials: {

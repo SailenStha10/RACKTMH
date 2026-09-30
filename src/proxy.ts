@@ -8,13 +8,20 @@ import { auth } from "@/lib/auth"
  * so requireAdmin()/requireAdminAction() in src/lib/auth-guard.ts remain the
  * mandatory authorization check on every admin page, server action and
  * route handler.
+ *
+ * There is no separate public /login route by design: /admin itself renders
+ * the sign-in form when there's no session, and the dashboard when there is.
+ * Deeper admin paths redirect back to bare /admin (not the subpath) so an
+ * unauthenticated visitor never sees anything other than the sign-in form.
  */
 export default auth((req) => {
-  const isAdminRoute = req.nextUrl.pathname.startsWith("/admin")
+  const { pathname } = req.nextUrl
+  const isAdminRoute = pathname.startsWith("/admin")
+  const isAdminRoot = pathname === "/admin"
 
-  if (isAdminRoute && !req.auth) {
-    const loginUrl = new URL("/login", req.nextUrl.origin)
-    loginUrl.searchParams.set("callbackUrl", req.nextUrl.pathname)
+  if (isAdminRoute && !isAdminRoot && !req.auth) {
+    const loginUrl = new URL("/admin", req.nextUrl.origin)
+    loginUrl.searchParams.set("callbackUrl", pathname)
     return NextResponse.redirect(loginUrl)
   }
 })

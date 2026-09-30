@@ -1,15 +1,24 @@
 import Image from "next/image";
 
 import { siteConfig } from "@/config/site";
-import { mockFeaturedEvent } from "@/data/mock";
 import { Container } from "@/components/layout/Container";
 import { SectionHeading } from "@/components/layout/SectionHeading";
 import { Reveal } from "@/components/motion/Reveal";
 import { PillLink } from "@/components/ui/PillLink";
 
+// Only verified event: the district Presidents' Night the club co-hosts
+// (date not yet confirmed, so it isn't modeled as a DB Event row).
+const FEATURED_EVENT = {
+  title: "Rotaract District 3292 Presidents' Night 2026",
+  tag: "District event, co-host",
+  dateLabel: "Date to be confirmed",
+  venue: "Pokhara, Nepal",
+  image: "/events/presidents-night.svg",
+};
+
 /** Upcoming events: the latest event as a highlight. */
 function EventsShowcase() {
-  const event = mockFeaturedEvent;
+  const event = FEATURED_EVENT;
 
   return (
     <section id="events" className="bg-[#fbeef3] py-16 sm:py-20 lg:py-24">

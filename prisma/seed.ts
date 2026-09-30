@@ -56,9 +56,68 @@ async function seedCommittees() {
   )
 }
 
+const PROJECT_JYOTI_PARTNERS = [
+  "Rotary Club of Kathmandu Height",
+  "Rotary Club of Nanaimo Daybreak (Canada)",
+  "ADSon",
+  "Rotary Club of Patan",
+  "Rotaract Club of Kathmandu Height",
+  "Rotaract Club of Kathmandu Midtown",
+  "Rose International Fund for Children",
+]
+
+async function seedProjectJyoti() {
+  const partners = []
+  for (const name of PROJECT_JYOTI_PARTNERS) {
+    const partner = await prisma.partner.upsert({
+      where: { name },
+      update: {},
+      create: { name },
+    })
+    partners.push(partner)
+  }
+
+  const project = await prisma.project.upsert({
+    where: { slug: "project-jyoti" },
+    update: {},
+    create: {
+      slug: "project-jyoti",
+      title: "Project Jyoti",
+      summary:
+        "A school-level vision screening programme in Kavrepalanchok district to protect children's eye health, identify vision problems early and improve access to treatment and learning support. Delivered with international partners from Canada.",
+      description:
+        "A school-level vision screening programme in Kavrepalanchok district to protect children's eye health, identify vision problems early and improve access to treatment and learning support. Delivered with international partners from Canada.",
+      objectives: [],
+      avenue: "COMMUNITY_SERVICE",
+      // Verified as "July 2026"; exact day not confirmed, so the 1st is used
+      // as a placeholder to satisfy the required DateTime field.
+      startDate: new Date("2026-07-01"),
+      location: "Kavrepalanchok district, Nepal",
+      status: "COMPLETED",
+      isFeatured: true,
+      coverUrl: "/placeholders/project-cover.svg",
+    },
+  })
+
+  for (const partner of partners) {
+    await prisma.projectPartner.upsert({
+      where: {
+        projectId_partnerId: { projectId: project.id, partnerId: partner.id },
+      },
+      update: {},
+      create: { projectId: project.id, partnerId: partner.id },
+    })
+  }
+
+  console.log(
+    `Project ready: ${project.title} (${partners.length} partners linked)`
+  )
+}
+
 async function main() {
   await seedAdmin()
   await seedCommittees()
+  await seedProjectJyoti()
 }
 
 main()

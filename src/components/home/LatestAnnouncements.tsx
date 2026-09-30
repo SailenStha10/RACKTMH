@@ -1,18 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { mockAnnouncements } from "@/data/mock";
+import { getLatestAnnouncements } from "@/lib/queries/announcements";
 import { formatDate } from "@/lib/format";
 import { Section } from "@/components/layout/Section";
 import { Reveal } from "@/components/motion/Reveal";
 
-function LatestAnnouncements() {
-  if (mockAnnouncements.length === 0) return null;
+async function LatestAnnouncements() {
+  const announcements = await getLatestAnnouncements(4);
+  if (announcements.length === 0) return null;
 
   return (
     <Section title="News and updates from the club.">
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {mockAnnouncements.map((a, i) => (
+        {announcements.map((a, i) => (
           <Reveal key={a.id} delay={i * 0.1} y={40}>
             <Link
               href={`/announcements/${a.slug}`}

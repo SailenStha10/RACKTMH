@@ -1,14 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { mockGalleryAlbums } from "@/data/mock";
+import { getGalleryAlbums } from "@/lib/queries/gallery";
 import { Container } from "@/components/layout/Container";
 import { SectionHeading } from "@/components/layout/SectionHeading";
 import { HorizontalStrip } from "@/components/motion/HorizontalStrip";
 import { Reveal } from "@/components/motion/Reveal";
 
-function GalleryPreview() {
-  if (mockGalleryAlbums.length === 0) return null;
+async function GalleryPreview() {
+  const galleryAlbums = await getGalleryAlbums(10);
+  if (galleryAlbums.length === 0) return null;
 
   return (
     <section className="py-24 sm:py-32 lg:py-40">
@@ -17,7 +18,7 @@ function GalleryPreview() {
       </Container>
 
       <HorizontalStrip className="flex w-max gap-4 px-4 sm:px-6 lg:px-8">
-        {mockGalleryAlbums.map((album) => (
+        {galleryAlbums.map((album) => (
           <Link
             key={album.id}
             href={`/gallery/${album.slug}`}

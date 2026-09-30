@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { mockRecognition } from "@/data/mock";
+import { getCurrentRecognition } from "@/lib/queries/recognition";
 import { Container } from "@/components/layout/Container";
 import { Reveal } from "@/components/motion/Reveal";
 
@@ -19,8 +19,9 @@ const MONTH_NAMES = [
   "December",
 ];
 
-function RotaractorOfTheMonth() {
-  const recognition = mockRecognition;
+
+async function RotaractorOfTheMonth() {
+  const recognition = await getCurrentRecognition();
   if (!recognition) return null;
 
   return (

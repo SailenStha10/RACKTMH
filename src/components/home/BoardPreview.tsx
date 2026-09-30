@@ -4,7 +4,7 @@ import { LeaderCards } from "@/components/home/LeaderCards";
 
 function BoardPreview() {
   return (
-    <Section title="Meet our leaders." className="overflow-hidden">
+    <Section title="Meet the team." className="overflow-hidden">
       <LeaderCards leaders={siteConfig.leaders} />
     </Section>
   );

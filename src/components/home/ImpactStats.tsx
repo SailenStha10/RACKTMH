@@ -1,15 +1,16 @@
-import { mockImpactStats } from "@/data/mock";
+import { getHomeImpactStats } from "@/lib/queries/home";
 import { Section } from "@/components/layout/Section";
 import { CountUpStat } from "@/components/home/CountUpStat";
 import { Reveal } from "@/components/motion/Reveal";
 
-function ImpactStats() {
-  if (mockImpactStats.length === 0) return null;
+async function ImpactStats() {
+  const impactStats = await getHomeImpactStats();
+  if (impactStats.every((stat) => stat.value === 0)) return null;
 
   return (
     <Section id="impact" title="What our members have done, together.">
       <dl className="grid grid-cols-2 gap-x-6 gap-y-14 lg:grid-cols-4">
-        {mockImpactStats.map((stat, i) => (
+        {impactStats.map((stat, i) => (
           <Reveal
             key={stat.label}
             delay={i * 0.1}

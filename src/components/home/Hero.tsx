@@ -3,18 +3,30 @@ import Image from "next/image";
 import { siteConfig } from "@/config/site";
 import { isTodo } from "@/lib/content";
 import { getCurrentRotaryYear } from "@/lib/rotary-year";
+import { getSiteSettings } from "@/lib/queries/settings";
 import { Reveal } from "@/components/motion/Reveal";
 import { SplitTextReveal } from "@/components/motion/SplitTextReveal";
 import { PillLink } from "@/components/ui/PillLink";
 import DitherReveal from "@/components/home/DitherReveal";
 
+interface HeroSettings {
+  theme?: string;
+  intro?: string;
+  charterDate?: string;
+}
+
 /**
  * Hero based on Originkit "Hero 40": a dithered image that reveals its true
  * colours under the pointer, with the headline anchored bottom-right.
  */
-function Hero() {
+async function Hero() {
   const rotaryYear = getCurrentRotaryYear();
-  const hasTheme = !isTodo(siteConfig.theme);
+  const settings = await getSiteSettings();
+  const hero = (settings.hero ?? {}) as HeroSettings;
+  const theme = hero.theme ?? siteConfig.theme;
+  const intro = hero.intro ?? siteConfig.intro;
+  const charterDate = hero.charterDate ?? siteConfig.charterDate;
+  const hasTheme = !isTodo(theme);
 
   return (
     <section
@@ -53,21 +65,19 @@ function Hero() {
         <Reveal y={8}>
           <p className="mb-4 text-xs font-medium tracking-[0.19em] text-[#0f0f0f] uppercase">
             Rotary year {rotaryYear} &middot; RID 3292 &middot; Chartered{" "}
-            {siteConfig.charterDate}
+            {charterDate}
           </p>
         </Reveal>
 
         <SplitTextReveal
           as="h1"
-          text={
-            hasTheme ? siteConfig.theme : "Rotaract Club of\nKathmandu Height"
-          }
+          text={hasTheme ? theme : "Rotaract Club of\nKathmandu Height"}
           className="text-[clamp(2.5rem,5.4vw,5.5rem)] leading-[0.95] font-semibold tracking-[-0.05em]"
         />
 
         <Reveal delay={0.4}>
           <p className="mt-5 max-w-lg text-base text-[#0f0f0f]/80 sm:text-lg">
-            {siteConfig.intro}
+            {intro}
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             <PillLink href="/join" tone="pink">

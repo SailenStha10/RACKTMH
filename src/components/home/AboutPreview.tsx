@@ -2,9 +2,15 @@ import Image from "next/image";
 
 import { siteConfig } from "@/config/site";
 import { isTodo } from "@/lib/content";
+import { getSiteSettings } from "@/lib/queries/settings";
 import { Container } from "@/components/layout/Container";
 import { SectionHeading } from "@/components/layout/SectionHeading";
 import { AboutStatement } from "@/components/home/AboutStatement";
+
+interface AboutSettings {
+  mission?: string;
+  vision?: string;
+}
 
 const stripEnds = (text: string) =>
   text.replace(/^To /, "").replace(/\.$/, "").trim();
@@ -15,16 +21,21 @@ const lowerFirst = (text: string) =>
  * About section. The headline has its own band above the photo so it never
  * covers faces; the mission and vision sentence rises from the bottom edge.
  */
-function AboutPreview() {
+async function AboutPreview() {
+  const settings = await getSiteSettings();
+  const about = (settings.about ?? {}) as AboutSettings;
+  const mission = about.mission ?? siteConfig.mission;
+  const vision = about.vision ?? siteConfig.vision;
+
   const statement =
-    isTodo(siteConfig.mission) || isTodo(siteConfig.vision)
+    isTodo(mission) || isTodo(vision)
       ? null
-      : `Our mission is to ${lowerFirst(stripEnds(siteConfig.mission))}, guided by our vision of ${lowerFirst(stripEnds(siteConfig.vision))}.`;
+      : `Our mission is to ${lowerFirst(stripEnds(mission))}, guided by our vision of ${lowerFirst(stripEnds(vision))}.`;
 
   return (
     <section id="about" className="bg-white text-[#0f0f0f]">
       <Container className="relative z-10 pt-32 sm:pt-40">
-        <SectionHeading title="A youth-led club serving Kathmandu." />
+        <SectionHeading title="A youth-led club serving in Kathmandu." />
       </Container>
 
       <div className="relative isolate -mt-8 flex min-h-[90svh] items-end overflow-hidden sm:-mt-14">

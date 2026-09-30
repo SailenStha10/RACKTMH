@@ -1374,7 +1374,7 @@ Claude Code updates this section after each ticket.
 | T-201 | Neon database setup | [x] | 2026-09-30 |
 | T-202 | Install and configure Prisma | [x] | 2026-09-30 |
 | T-203 | Implement full Prisma schema | [x] | 2026-09-30 |
-| T-204 | Seed script | [ ] | |
+| T-204 | Seed script | [x] | 2026-09-30 |
 | T-205 | Data access layer | [ ] | |
 | T-206 | Connect landing page to database | [ ] | |
 | T-301 | Auth.js setup | [ ] | |

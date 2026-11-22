@@ -1,16 +1,8 @@
+// Database is disabled for the frontend-only phase. Re-point this to Prisma
+// (see git history before this change) when the backend work resumes.
 import "server-only"
-import { unstable_cache } from "next/cache"
 
-import { prisma } from "@/lib/prisma"
-
-async function fetchSiteSettings(): Promise<Record<string, unknown>> {
-  const rows = await prisma.siteSetting.findMany()
-  return Object.fromEntries(rows.map((row) => [row.key, row.value]))
+// Empty: components fall back to src/config/site.ts.
+export async function getSiteSettings(): Promise<Record<string, unknown>> {
+  return {}
 }
-
-const getSiteSettings = unstable_cache(fetchSiteSettings, ["site-settings"], {
-  tags: ["settings"],
-  revalidate: 300,
-})
-
-export { getSiteSettings }

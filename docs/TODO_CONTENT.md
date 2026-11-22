@@ -1,6 +1,6 @@
 # Content still needed
 
-Source of truth: CONTENT_BRIEF.md. Fill Section 4 of the brief and add files under `content/`, then tell Claude Code to re-run the content pass.
+Source of truth: docs/CONTENT_BRIEF.md. Fill Section 4 of the brief and add files under `content/`, then tell Claude Code to re-run the content pass.
 
 ## Needs confirmation
 - Sponsor club relationship: Rotary Club of Kathmandu Height (charter date 3 August 2020, RI District 3292). Not shown as "our sponsor" anywhere until confirmed (`sponsorClubVerified: false` in `src/config/site.ts`).

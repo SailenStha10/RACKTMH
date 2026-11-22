@@ -1,6 +1,6 @@
 # DESIGN SPEC (T-100)
 
-Source: `design/reference/video.mp4` (40 s screen recording, 1114x696, one continuous scroll of a studio site). Frames were reviewed at 1 fps. The reference brand name, copy and photos are NOT reused. Only structure, type, spacing, colour treatment and motion are.
+Source: `docs/design/reference/video.mp4` (40 s screen recording, 1114x696, one continuous scroll of a studio site). Frames were reviewed at 1 fps. The reference brand name, copy and photos are NOT reused. Only structure, type, spacing, colour treatment and motion are.
 
 Estimates below come from a low-resolution recording; values marked ~ are approximate and should be tuned by eye against the frames.
 

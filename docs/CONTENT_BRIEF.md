@@ -11,9 +11,9 @@
    - Section 3 (verified facts),
    - Section 4 (filled in by the user from Instagram),
    - files inside `content/instagram/` (Section 5).
-2. Anything not provided must use an obvious placeholder in the form `[[TODO: description]]` and must be listed in `content/TODO_CONTENT.md` so the user can fill it. Placeholder people use names like `[[TODO: President name]]`, never realistic fake names.
+2. Anything not provided must use an obvious placeholder in the form `[[TODO: description]]` and must be listed in `docs/TODO_CONTENT.md` so the user can fill it. Placeholder people use names like `[[TODO: President name]]`, never realistic fake names.
 3. Generic Rotaract/Rotary explanatory text (what Rotaract is, avenues of service, age range, etc.) may be written freely, since it is general knowledge, not a club-specific claim.
-4. Items marked **(verify)** are likely but unconfirmed. Use them but add them to `content/TODO_CONTENT.md` under "Needs confirmation".
+4. Items marked **(verify)** are likely but unconfirmed. Use them but add them to `docs/TODO_CONTENT.md` under "Needs confirmation".
 5. Instagram captions are source material, not final copy. Rewrite them into clean website English: remove hashtags, emojis, @mentions and "link in bio" text. Keep facts (dates, venues, partners, numbers) unchanged.
 6. If Nepali text appears in captions, translate to English for the site and keep the original Nepali project names where they are proper names (e.g. "Project Jyoti").
 7. Before T-101, output a short **Content Inventory** (what was found, what is missing) and stop for the user to review, as an extra step within T-101.
@@ -205,6 +205,6 @@ Claude Code mapping rules:
 - [ ] Content Inventory shown to the user before building T-101.
 - [ ] `src/config/site.ts` populated from Sections 2 and 4.1.
 - [ ] `src/data/mock.ts` built only from this brief and `content/`.
-- [ ] Every missing item appears as `[[TODO: ...]]` and in `content/TODO_CONTENT.md`.
+- [ ] Every missing item appears as `[[TODO: ...]]` and in `docs/TODO_CONTENT.md`.
 - [ ] No fabricated people, numbers or dates anywhere.
 - [ ] The same content is reused for the T-204 seed.

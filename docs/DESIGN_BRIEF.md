@@ -1,8 +1,8 @@
 # DESIGN BRIEF — Visual Design & Motion Reference
 
-> Companion to `PROJECT_MASTER.md` and `CONTENT_BRIEF.md`.
+> Companion to `PROJECT_MASTER.md` and `docs/CONTENT_BRIEF.md`.
 > Reference shot: https://dribbble.com/shots/27768798-N-RRA-Website-animation
-> This file controls how the site **looks and moves**. `CONTENT_BRIEF.md` controls what it **says**. `PROJECT_MASTER.md` controls **process**.
+> This file controls how the site **looks and moves**. `docs/CONTENT_BRIEF.md` controls what it **says**. `PROJECT_MASTER.md` controls **process**.
 > Where this file conflicts with PROJECT_MASTER Section 3 (Design Direction), this file wins.
 
 ---

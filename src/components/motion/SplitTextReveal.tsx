@@ -8,7 +8,7 @@ import { duration, ease } from "@/lib/motion";
 
 interface SplitTextRevealProps {
   text: string;
-  as?: "h1" | "h2" | "h3" | "p";
+  as?: "h1" | "h2" | "h3" | "p" | "span";
   className?: string;
   delay?: number;
   id?: string;

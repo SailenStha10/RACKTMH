@@ -158,7 +158,7 @@ function WhoWeAre() {
               quality={90}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/20 via-transparent to-transparent" aria-hidden="true" />
-            <div className="absolute bottom-6 left-6 right-6 text-[#0f0f0f]/90">
+            <div className="absolute bottom-6 left-6 right-6 text-white">
               <p className="text-label text-brand-primary tracking-[0.2em]">Our Community</p>
               <p className="text-title font-medium mt-1">Young leaders united by service</p>
             </div>
@@ -201,12 +201,12 @@ function OurImpactInAction() {
             <span className="inline-block px-3 py-1 rounded-full bg-brand-primary/90 text-white text-xs font-medium tracking-[0.1em] uppercase mb-3">
               Community Service
             </span>
-            <h3 className="text-[clamp(1.5rem,3vw,2.25rem)] leading-tight font-semibold text-[#0f0f0f]">
+            <h3 className="text-[clamp(1.5rem,3vw,2.25rem)] leading-tight font-semibold text-white">
               Project Jyoti
             </h3>
-            <p className="text-[#0f0f0f]/70 mt-2 text-sm">Clear Vision, Bright Future</p>
+            <p className="text-white/80 mt-2 text-sm">Clear Vision, Bright Future</p>
           </div>
-          <div className="absolute top-6 right-6 text-right text-[#0f0f0f]/60 text-sm">
+          <div className="absolute top-6 right-6 text-right text-white/70 text-sm">
             <p>23 September 2026</p>
             <p>Koteshwor Saraswoti Higher Secondary School</p>
           </div>
@@ -298,7 +298,7 @@ function WhatDefinesUs() {
                 quality={90}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/20 via-transparent to-transparent" aria-hidden="true" />
-              <div className="absolute bottom-6 left-6 right-6 text-[#0f0f0f]">
+              <div className="absolute bottom-6 left-6 right-6 text-white">
                 <h3 className="text-title font-medium">{item.title}</h3>
                 <p className="text-sm text-[#0f0f0f]/70 mt-1 max-w-xs">{item.description}</p>
               </div>
@@ -376,7 +376,7 @@ function FourAvenues() {
                 quality={90}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/20 via-transparent to-transparent" aria-hidden="true" />
-              <div className="absolute bottom-6 left-6 right-6 text-[#0f0f0f] space-y-3">
+              <div className="absolute bottom-6 left-6 right-6 text-white space-y-3">
                 <h3 className="text-title font-medium">{avenue.title}</h3>
                 <p className="text-sm text-[#0f0f0f]/70">{avenue.description}</p>
               </div>
@@ -455,7 +455,7 @@ function OurJourney() {
                   quality={90}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/20 via-transparent to-transparent" aria-hidden="true" />
-                <div className="absolute bottom-6 left-6 right-6 text-[#0f0f0f]">
+                <div className="absolute bottom-6 left-6 right-6 text-white">
                   <span className="inline-block px-3 py-1 rounded-full bg-brand-primary/90 text-white text-xs font-medium tracking-[0.1em] uppercase mb-2 block">
                     {item.year}
                   </span>

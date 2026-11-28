@@ -17,7 +17,7 @@ const AVENUES = [
     id: "community-service",
     title: "Community Service",
     description: "Improving lives through local projects like Project Jyoti.",
-    image: "/images/about/community-service.svg",
+    image: "/images/about/project-jyoti.webp",
     accent: "brand-primary",
   },
   {
@@ -31,7 +31,7 @@ const AVENUES = [
     id: "professional-development",
     title: "Professional Development",
     description: "Developing leadership and career skills for young professionals.",
-    image: "/images/about/professional-development.svg",
+    image: "/images/about/professional-development.jpg",
     accent: "brand-secondary",
   },
 ] as const;
@@ -42,14 +42,14 @@ const JOURNEY_ITEMS = [
     title: "Club Chartered",
     date: "6 January 2026",
     description: "Rotaract Club of Kathmandu Height officially chartered in Rotary International District 3292.",
-    image: "/images/about/journey-charter.svg",
+    image: "/images/about/charter.jpg",
   },
   {
     year: "2026",
     title: "Project Jyoti Launched",
     date: "23 September 2026",
     description: "School vision screening programme at Koteshwor Saraswoti Higher Secondary School, Kavrepalanchok. Theme: Clear Vision, Bright Future.",
-    image: "/images/about/project-jyoti.svg",
+    image: "/images/about/project-jyoti.webp",
   },
   {
     year: "2026",
@@ -64,12 +64,12 @@ function Hero() {
   return (
     <section
       id="home"
-      className="relative isolate min-h-[90vh] flex items-center justify-center overflow-hidden bg-[#0a0a0a]"
+      className="relative isolate min-h-[90vh] flex items-center justify-center overflow-hidden bg-white"
       aria-labelledby="hero-title"
     >
       <div className="absolute inset-0 -z-10" aria-hidden="true">
         <Image
-          src="/images/about/hero-background.svg"
+          src="/images/about/All.jpg"
           alt="Rotaract Club of Kathmandu Height members in action"
           fill
           priority
@@ -77,8 +77,8 @@ function Hero() {
           className="object-cover"
           quality={90}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(212,19,103,0.15)_0%,_transparent_70%)]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-white/80 to-[#fbeef3]" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(212,19,103,0.08)_0%,_transparent_70%)]" />
       </div>
 
       <Container className="relative z-10 text-center space-y-8 max-w-5xl px-6">
@@ -86,30 +86,34 @@ function Hero() {
           <p className="text-label text-brand-primary tracking-[0.3em] uppercase">
             ROTARACT CLUB OF KATHMANDU HEIGHT
           </p>
-          <SplitTextReveal
-            as="h1"
+          <h1
             id="hero-title"
-            text="Together, We Create Impact."
-            className="text-[clamp(3rem,7vw,6.5rem)] leading-[1.05] font-semibold tracking-[-0.03em] text-white"
-          />
-          <p className="text-[clamp(1.125rem,2.5vw,1.5rem)] leading-relaxed text-white/70 max-w-2xl mx-auto font-light tracking-[0.02em]">
+            className="text-[clamp(3rem,7vw,6.5rem)] leading-[1.05] font-semibold tracking-[-0.03em] text-[#0f0f0f]"
+          >
+            <SplitTextReveal
+              as="span"
+              text="Together, We Create Impact."
+              className="text-[clamp(3rem,7vw,6.5rem)] leading-[1.05] font-semibold tracking-[-0.03em] text-[#0f0f0f]"
+            />
+          </h1>
+          <p className="text-[clamp(1.125rem,2.5vw,1.5rem)] leading-relaxed text-[#0f0f0f]/70 max-w-2xl mx-auto font-light tracking-[0.02em]">
             Leadership. Fellowship. Service.
           </p>
         </Reveal>
 
-        <Reveal y={20} delay={0.3} className="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm text-white/50">
+        <Reveal y={20} delay={0.3} className="flex flex-col sm:flex-row items-center justify-center gap-4 text-sm text-[#0f0f0f]/50">
           <span className="flex items-center gap-2">
-            <span className="w-px h-6 bg-white/20" aria-hidden="true" />
+            <span className="w-px h-6 bg-brand-primary/20" aria-hidden="true" />
             DISTRICT 3292
           </span>
           <span className="flex items-center gap-2">
             ZONE 7
-            <span className="w-px h-6 bg-white/20" aria-hidden="true" />
+            <span className="w-px h-6 bg-brand-primary/20" aria-hidden="true" />
           </span>
         </Reveal>
 
         <Reveal y={20} delay={0.5} className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce" aria-hidden="true">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-white/40">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-brand-primary/40">
             <path d="M12 5v14M19 12l-7 7-7-7" />
           </svg>
         </Reveal>
@@ -144,17 +148,17 @@ function WhoWeAre() {
         </Reveal>
 
         <Reveal y={30} delay={0.1} className="relative">
-          <div className="relative aspect-[4/5] lg:aspect-[3/4] rounded-[1.5rem] overflow-hidden bg-[#0f0f0f]">
+          <div className="relative aspect-[4/5] lg:aspect-[3/4] rounded-[1.5rem] overflow-hidden bg-[#fbeef3]">
             <Image
-              src="/images/about/who-we-are.svg"
+              src="/images/about/who-weare.jpg"
               alt="Rotaract Club of Kathmandu Height members at a club gathering"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               className="object-cover transition-transform duration-700 hover:scale-[1.02]"
               quality={90}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" aria-hidden="true" />
-            <div className="absolute bottom-6 left-6 right-6 text-white/90">
+            <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/20 via-transparent to-transparent" aria-hidden="true" />
+            <div className="absolute bottom-6 left-6 right-6 text-[#0f0f0f]/90">
               <p className="text-label text-brand-primary tracking-[0.2em]">Our Community</p>
               <p className="text-title font-medium mt-1">Young leaders united by service</p>
             </div>
@@ -183,26 +187,26 @@ function OurImpactInAction() {
       containerClassName="relative"
     >
       <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-        <Reveal y={30} className="relative aspect-[4/3] lg:aspect-[3/2] rounded-[1.5rem] overflow-hidden bg-[#0f0f0f]">
+        <Reveal y={30} className="relative aspect-[4/3] lg:aspect-[3/2] rounded-[1.5rem] overflow-hidden bg-[#fbeef3]">
           <Image
-            src="/images/about/project-jyoti.svg"
+            src="/images/about/project-jyoti.webp"
             alt="Project Jyoti — Rotaractors and students at Koteshwor Saraswoti Higher Secondary School"
             fill
             sizes="(max-width: 1024px) 100vw, 50vw"
             className="object-cover transition-transform duration-700 hover:scale-[1.02]"
             quality={90}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" aria-hidden="true" />
+          <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/30 via-transparent to-transparent" aria-hidden="true" />
           <div className="absolute bottom-6 left-6 right-6">
             <span className="inline-block px-3 py-1 rounded-full bg-brand-primary/90 text-white text-xs font-medium tracking-[0.1em] uppercase mb-3">
               Community Service
             </span>
-            <h3 className="text-[clamp(1.5rem,3vw,2.25rem)] leading-tight font-semibold text-white">
+            <h3 className="text-[clamp(1.5rem,3vw,2.25rem)] leading-tight font-semibold text-[#0f0f0f]">
               Project Jyoti
             </h3>
-            <p className="text-white/70 mt-2 text-sm">Clear Vision, Bright Future</p>
+            <p className="text-[#0f0f0f]/70 mt-2 text-sm">Clear Vision, Bright Future</p>
           </div>
-          <div className="absolute top-6 right-6 text-right text-white/60 text-sm">
+          <div className="absolute top-6 right-6 text-right text-[#0f0f0f]/60 text-sm">
             <p>23 September 2026</p>
             <p>Koteshwor Saraswoti Higher Secondary School</p>
           </div>
@@ -252,19 +256,19 @@ function WhatDefinesUs() {
     {
       title: "Fellowship",
       description: "Building lifelong bonds through shared purpose.",
-      image: "/images/about/fellowship.svg",
+      image: "/images/about/fellowship.jpg",
       size: "medium",
     },
     {
       title: "Community Service",
       description: "Creating tangible impact where it matters most.",
-      image: "/images/about/community-service.svg",
+      image: "/images/about/community.jpg",
       size: "medium",
     },
     {
       title: "Professional Development",
       description: "Equipping members with skills for career growth.",
-      image: "/images/about/professional-development.svg",
+      image: "/images/about/professional-development.jpg",
       size: "large",
     },
   ];
@@ -282,7 +286,7 @@ function WhatDefinesUs() {
         {items.map((item, index) => (
           <Reveal key={item.title} y={30} delay={index * 0.08} className="relative group">
             <div
-              className={`relative aspect-square lg:aspect-[${item.size === "large" ? "5/4" : "4/5"}] rounded-[1.5rem] overflow-hidden bg-[#0f0f0f] transition-transform duration-500 hover:-translate-y-2`}
+              className={`relative aspect-square lg:aspect-[${item.size === "large" ? "5/4" : "4/5"}] rounded-[1.5rem] overflow-hidden bg-[#fbeef3] transition-transform duration-500 hover:-translate-y-2`}
               style={{ gridColumn: item.size === "large" ? "span 2 / span 2" : undefined, gridRow: item.size === "large" ? "span 2 / span 2" : undefined }}
             >
               <Image
@@ -293,10 +297,10 @@ function WhatDefinesUs() {
                 className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                 quality={90}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" aria-hidden="true" />
-              <div className="absolute bottom-6 left-6 right-6 text-white">
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/20 via-transparent to-transparent" aria-hidden="true" />
+              <div className="absolute bottom-6 left-6 right-6 text-[#0f0f0f]">
                 <h3 className="text-title font-medium">{item.title}</h3>
-                <p className="text-sm text-white/70 mt-1 max-w-xs">{item.description}</p>
+                <p className="text-sm text-[#0f0f0f]/70 mt-1 max-w-xs">{item.description}</p>
               </div>
             </div>
           </Reveal>
@@ -362,7 +366,7 @@ function FourAvenues() {
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {AVENUES.map((avenue, index) => (
           <Reveal key={avenue.id} y={30} delay={index * 0.08} className="relative group">
-            <div className="relative aspect-[3/4] rounded-[1.5rem] overflow-hidden bg-[#0f0f0f] transition-transform duration-500 hover:-translate-y-2">
+            <div className="relative aspect-[3/4] rounded-[1.5rem] overflow-hidden bg-[#fbeef3] transition-transform duration-500 hover:-translate-y-2">
               <Image
                 src={avenue.image}
                 alt={`Rotaract Club of Kathmandu Height — ${avenue.title}`}
@@ -371,10 +375,10 @@ function FourAvenues() {
                 className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                 quality={90}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" aria-hidden="true" />
-              <div className="absolute bottom-6 left-6 right-6 text-white space-y-3">
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/20 via-transparent to-transparent" aria-hidden="true" />
+              <div className="absolute bottom-6 left-6 right-6 text-[#0f0f0f] space-y-3">
                 <h3 className="text-title font-medium">{avenue.title}</h3>
-                <p className="text-sm text-white/70">{avenue.description}</p>
+                <p className="text-sm text-[#0f0f0f]/70">{avenue.description}</p>
               </div>
             </div>
           </Reveal>
@@ -394,7 +398,7 @@ function OurRecognition() {
       className="py-24 lg:py-32 relative overflow-hidden"
       containerClassName="relative max-w-6xl"
     >
-      <Reveal y={30} className="relative aspect-[3/2] rounded-[1.5rem] overflow-hidden bg-[#0f0f0f]">
+      <Reveal y={30} className="relative aspect-[3/2] rounded-[1.5rem] overflow-hidden bg-[#fbeef3]">
         <Image
           src="/images/about/club-recognition.svg"
           alt="Rotaract Club of Kathmandu Height — Awards, certificates, and recognition materials"
@@ -403,22 +407,22 @@ function OurRecognition() {
           className="object-cover"
           quality={90}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/30 via-transparent to-transparent" aria-hidden="true" />
         <div className="absolute inset-0 flex items-end p-8 lg:p-12">
           <div className="max-w-2xl space-y-4">
             <span className="inline-block px-3 py-1 rounded-full bg-brand-primary/90 text-white text-xs font-medium tracking-[0.1em] uppercase">
               Verified Achievements
             </span>
-            <h2 className="text-[clamp(2rem,4vw,3rem)] leading-tight font-semibold text-white">
+            <h2 className="text-[clamp(2rem,4vw,3rem)] leading-tight font-semibold text-[#0f0f0f]">
               Every Effort Creates an Impact.
             </h2>
-            <p className="text-lg leading-relaxed text-white/70">
+            <p className="text-lg leading-relaxed text-[#0f0f0f]/70">
               Our club has been recognized for outstanding community service, leadership development, and district-level contributions. These awards reflect the dedication of every Rotaractor who has served through our club.
             </p>
             <div className="flex flex-wrap gap-3 pt-4">
-              <span className="px-4 py-2 rounded-full border border-white/20 text-white/80 text-sm">Project Jyoti — Community Impact</span>
-              <span className="px-4 py-2 rounded-full border border-white/20 text-white/80 text-sm">District 3292 — Co-host Presidents&apos; Night</span>
-              <span className="px-4 py-2 rounded-full border border-white/20 text-white/80 text-sm">Rotary International — Charter Recognition</span>
+              <span className="px-4 py-2 rounded-full border border-brand-primary/30 text-brand-primary text-sm">Project Jyoti — Community Impact</span>
+              <span className="px-4 py-2 rounded-full border border-brand-primary/30 text-brand-primary text-sm">District 3292 — Co-host Presidents&apos; Night</span>
+              <span className="px-4 py-2 rounded-full border border-brand-primary/30 text-brand-primary text-sm">Rotary International — Charter Recognition</span>
             </div>
           </div>
         </div>
@@ -441,7 +445,7 @@ function OurJourney() {
         {JOURNEY_ITEMS.map((item, index) => (
           <Reveal key={item.title} y={30} delay={index * 0.1} className="relative">
             <div className="grid lg:grid-cols-2 gap-8 items-center">
-              <div className="relative aspect-[4/3] rounded-[1.5rem] overflow-hidden bg-[#0f0f0f]">
+              <div className="relative aspect-[4/3] rounded-[1.5rem] overflow-hidden bg-[#fbeef3]">
                 <Image
                   src={item.image}
                   alt={`${item.title} — ${item.date}`}
@@ -450,13 +454,13 @@ function OurJourney() {
                   className="object-cover transition-transform duration-700 hover:scale-[1.02]"
                   quality={90}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" aria-hidden="true" />
-                <div className="absolute bottom-6 left-6 right-6 text-white">
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/20 via-transparent to-transparent" aria-hidden="true" />
+                <div className="absolute bottom-6 left-6 right-6 text-[#0f0f0f]">
                   <span className="inline-block px-3 py-1 rounded-full bg-brand-primary/90 text-white text-xs font-medium tracking-[0.1em] uppercase mb-2 block">
                     {item.year}
                   </span>
                   <h3 className="text-[clamp(1.25rem,2.5vw,1.75rem)] leading-tight font-semibold">{item.title}</h3>
-                  <p className="text-white/60 text-sm mt-1">{item.date}</p>
+                  <p className="text-[#0f0f0f]/60 text-sm mt-1">{item.date}</p>
                 </div>
               </div>
               <div className="space-y-4 text-left lg:pl-4">
@@ -480,46 +484,46 @@ function DistrictIdentity() {
       id="district-identity"
       title=""
       align="center"
-      tone="black"
+      tone="blush"
       className="py-24 lg:py-32 relative overflow-hidden"
       containerClassName="relative"
     >
-      <div className="relative aspect-[2/1] lg:aspect-[3/1] rounded-[1.5rem] overflow-hidden bg-[#0f0f0f]">
+      <div className="relative aspect-[2/1] lg:aspect-[3/1] rounded-[1.5rem] overflow-hidden bg-[#fbeef3]">
         <Image
           src="/images/about/district-identity.svg"
           alt="Rotaract Club of Kathmandu Height — District 3292, Zone 7 identity"
           fill
           sizes="100vw"
-          className="object-cover opacity-30"
+          className="object-cover opacity-40"
           quality={90}
         />
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="relative z-10 text-center space-y-8 px-6">
             <Reveal y={30} className="space-y-4">
               <div className="flex items-center justify-center gap-4">
-                <div className="w-px h-12 bg-white/20" aria-hidden="true" />
+                <div className="w-px h-12 bg-brand-primary/20" aria-hidden="true" />
                 <span className="text-label text-brand-primary tracking-[0.3em] uppercase">Rotaract Club of Kathmandu Height</span>
-                <div className="w-px h-12 bg-white/20" aria-hidden="true" />
+                <div className="w-px h-12 bg-brand-primary/20" aria-hidden="true" />
               </div>
-              <h2 className="text-[clamp(2.5rem,5vw,4rem)] leading-[1.05] font-semibold tracking-[-0.02em] text-white">
+              <h2 className="text-[clamp(2.5rem,5vw,4rem)] leading-[1.05] font-semibold tracking-[-0.02em] text-[#0f0f0f]">
                 DISTRICT 3292
               </h2>
               <p className="text-[clamp(1.25rem,2.5vw,1.75rem)] leading-relaxed text-brand-accent font-medium tracking-[0.1em]">
                 ZONE 7
               </p>
             </Reveal>
-            <Reveal y={20} delay={0.2} className="flex items-center justify-center gap-8 text-sm text-white/50">
+            <Reveal y={20} delay={0.2} className="flex items-center justify-center gap-8 text-sm text-[#0f0f0f]/50">
               <span className="flex items-center gap-2">
-                <span className="w-px h-6 bg-white/20" aria-hidden="true" />
+                <span className="w-px h-6 bg-brand-primary/20" aria-hidden="true" />
                 Chartered 6 January 2026
               </span>
               <span className="flex items-center gap-2">
                 Club ID: 8827984
-                <span className="w-px h-6 bg-white/20" aria-hidden="true" />
+                <span className="w-px h-6 bg-brand-primary/20" aria-hidden="true" />
               </span>
               <span className="flex items-center gap-2">
                 Sponsor: Rotary Club of Kathmandu Height
-                <span className="w-px h-6 bg-white/20" aria-hidden="true" />
+                <span className="w-px h-6 bg-brand-primary/20" aria-hidden="true" />
               </span>
             </Reveal>
           </div>
@@ -539,7 +543,7 @@ function FinalCTA() {
       className="py-24 lg:py-32 relative overflow-hidden"
       containerClassName="relative max-w-4xl"
     >
-      <div className="relative aspect-[12/5] lg:aspect-[2/1] rounded-[2rem] overflow-hidden bg-[#0a0a0a]">
+      <div className="relative aspect-[12/5] lg:aspect-[2/1] rounded-[2rem] overflow-hidden bg-[#fbeef3]">
         <Image
           src="/images/about/cta-background.svg"
           alt="Rotaract Club of Kathmandu Height members in fellowship and community service"
@@ -548,23 +552,23 @@ function FinalCTA() {
           className="object-cover"
           quality={90}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/80" aria-hidden="true" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(212,19,103,0.2)_0%,_transparent_70%)]" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-primary/10 via-transparent to-brand-accent/10" aria-hidden="true" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(212,19,103,0.08)_0%,_transparent_70%)]" aria-hidden="true" />
 
         <div className="absolute inset-0 flex items-center justify-center px-6">
           <div className="relative z-10 text-center space-y-8 max-w-3xl">
             <Reveal y={30} className="space-y-4">
-              <h2 className="text-[clamp(2.25rem,4.5vw,3.5rem)] leading-[1.1] font-semibold tracking-[-0.02em] text-white">
+              <h2 className="text-[clamp(2.25rem,4.5vw,3.5rem)] leading-[1.1] font-semibold tracking-[-0.02em] text-[#0f0f0f]">
                 Your Journey of Impact Starts Here.
               </h2>
-              <p className="text-[clamp(1.125rem,2vw,1.375rem)] leading-relaxed text-white/70">
+              <p className="text-[clamp(1.125rem,2vw,1.375rem)] leading-relaxed text-[#0f0f0f]/70">
                 Connect. Lead. Serve. Grow.
               </p>
             </Reveal>
             <Reveal y={20} delay={0.2}>
               <a
                 href="/join"
-                className="inline-flex items-center gap-3 rounded-full bg-white px-8 py-4 text-base font-medium text-brand-primary transition-all duration-300 hover:bg-white/90 hover:shadow-[0_0_40px_rgba(255,255,255,0.3)] focus-visible:outline-ring focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                className="inline-flex items-center gap-3 rounded-full bg-brand-primary px-8 py-4 text-base font-medium text-white transition-all duration-300 hover:bg-brand-primary/90 hover:shadow-[0_0_40px_rgba(212,19,103,0.3)] focus-visible:outline-ring focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary"
               >
                 Join Our Community
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">

@@ -300,7 +300,7 @@ function WhatDefinesUs() {
               <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/20 via-transparent to-transparent" aria-hidden="true" />
               <div className="absolute bottom-6 left-6 right-6 text-white">
                 <h3 className="text-title font-medium">{item.title}</h3>
-                <p className="text-sm text-[#0f0f0f]/70 mt-1 max-w-xs">{item.description}</p>
+                <p className="text-sm text-white/80 mt-1 max-w-xs">{item.description}</p>
               </div>
             </div>
           </Reveal>
@@ -378,7 +378,7 @@ function FourAvenues() {
               <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/20 via-transparent to-transparent" aria-hidden="true" />
               <div className="absolute bottom-6 left-6 right-6 text-white space-y-3">
                 <h3 className="text-title font-medium">{avenue.title}</h3>
-                <p className="text-sm text-[#0f0f0f]/70">{avenue.description}</p>
+                <p className="text-sm text-white/80">{avenue.description}</p>
               </div>
             </div>
           </Reveal>
@@ -460,7 +460,7 @@ function OurJourney() {
                     {item.year}
                   </span>
                   <h3 className="text-[clamp(1.25rem,2.5vw,1.75rem)] leading-tight font-semibold">{item.title}</h3>
-                  <p className="text-[#0f0f0f]/60 text-sm mt-1">{item.date}</p>
+                  <p className="text-white/70 text-sm mt-1">{item.date}</p>
                 </div>
               </div>
               <div className="space-y-4 text-left lg:pl-4">

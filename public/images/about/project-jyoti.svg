@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#16213e"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#D41367"/>
+      <stop offset="100%" style="stop-color:#F7A81B"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bg)"/>
+  <rect x="100" y="150" width="1000" height="500" rx="12" fill="rgba(255,255,255,0.03)" stroke="rgba(212,19,103,0.3)" stroke-width="1"/>
+  <text x="600" y="220" font-family="system-ui, sans-serif" font-size="24" font-weight="600" fill="url(#accent)" text-anchor="middle">PROJECT JYOTI</text>
+  <text x="600" y="260" font-family="system-ui, sans-serif" font-size="16" fill="rgba(255,255,255,0.6)" text-anchor="middle">Clear Vision, Bright Future</text>
+  <text x="600" y="320" font-family="system-ui, sans-serif" font-size="14" fill="rgba(255,255,255,0.5)" text-anchor="middle">23 September 2026 · Koteshwor Saraswoti Higher Secondary School</text>
+  <circle cx="600" cy="450" r="80" fill="none" stroke="url(#accent)" stroke-width="2" stroke-dasharray="10,10"/>
+  <text x="600" y="455" font-family="system-ui, sans-serif" font-size="14" fill="rgba(255,255,255,0.4)" text-anchor="middle">Group Photo Placeholder</text>
+  <text x="600" y="580" font-family="system-ui, sans-serif" font-size="12" fill="rgba(255,255,255,0.3)" text-anchor="middle">Replace with actual Project Jyoti photograph from Instagram</text>
+</svg>

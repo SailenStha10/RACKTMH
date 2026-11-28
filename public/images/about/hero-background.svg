@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="1080" viewBox="0 0 1920 1080">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a0a"/>
+      <stop offset="50%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#0f0f0f"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:rgba(212,19,103,0.15)"/>
+      <stop offset="100%" style="stop-color:rgba(212,19,103,0)"/>
+    </radialGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <ellipse cx="960" cy="540" rx="600" ry="300" fill="url(#glow)"/>
+  <g opacity="0.03">
+    <rect x="200" y="200" width="300" height="400" rx="8" fill="#D41367" transform="rotate(-15, 350, 400)"/>
+    <rect x="1400" y="300" width="250" height="350" rx="8" fill="#17458F" transform="rotate(10, 1525, 475)"/>
+    <rect x="400" y="700" width="280" height="320" rx="8" fill="#F7A81B" transform="rotate(5, 540, 860)"/>
+    <rect x="1300" y="650" width="320" height="280" rx="8" fill="#D41367" transform="rotate(-8, 1460, 790)"/>
+  </g>
+  <text x="960" y="1000" font-family="system-ui, sans-serif" font-size="14" fill="rgba(255,255,255,0.2)" text-anchor="middle">Hero Background Placeholder — Replace with authentic club photograph from Instagram</text>
+</svg>

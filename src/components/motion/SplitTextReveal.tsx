@@ -11,6 +11,7 @@ interface SplitTextRevealProps {
   as?: "h1" | "h2" | "h3" | "p";
   className?: string;
   delay?: number;
+  id?: string;
 }
 
 /** Word-by-word masked reveal. Use "\n" in text for forced line breaks. */
@@ -19,12 +20,13 @@ function SplitTextReveal({
   as: Tag = "h2",
   className,
   delay = 0,
+  id,
 }: SplitTextRevealProps) {
   const lines = text.split("\n");
   let index = 0;
 
   return (
-    <Tag className={className} aria-label={text.replace(/\n/g, " ")}>
+    <Tag id={id} className={className} aria-label={text.replace(/\n/g, " ")}>
       {lines.map((line, lineIndex) => (
         <span
           key={lineIndex}

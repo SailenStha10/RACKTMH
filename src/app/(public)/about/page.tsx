@@ -86,15 +86,12 @@ function Hero() {
           <p className="text-label text-brand-primary tracking-[0.3em] uppercase">
             ROTARACT CLUB OF KATHMANDU HEIGHT
           </p>
-          <h1
+          <SplitTextReveal
+            as="h1"
             id="hero-title"
+            text="Together, We Create Impact."
             className="text-[clamp(3rem,7vw,6.5rem)] leading-[1.05] font-semibold tracking-[-0.03em] text-white"
-          >
-            <SplitTextReveal
-              text="Together, We Create Impact."
-              className="text-[clamp(3rem,7vw,6.5rem)] leading-[1.05] font-semibold tracking-[-0.03em]"
-            />
-          </h1>
+          />
           <p className="text-[clamp(1.125rem,2.5vw,1.5rem)] leading-relaxed text-white/70 max-w-2xl mx-auto font-light tracking-[0.02em]">
             Leadership. Fellowship. Service.
           </p>
